@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C94A3B3522690CC300D5F368 /* TaskServices.swift in Resources */ = {isa = PBXBuildFile; fileRef = C94A3B3422690CC300D5F368 /* TaskServices.swift */; };
+		C94A3B3722690CDE00D5F368 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A3B3622690CDE00D5F368 /* Task.swift */; };
 		C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6DF79226024BF00D92D1C /* AppDelegate.swift */; };
 		C9D6DF7C226024BF00D92D1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6DF7B226024BF00D92D1C /* ViewController.swift */; };
 		C9D6DF7F226024BF00D92D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D6DF7D226024BF00D92D1C /* Main.storyboard */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C94A3B3422690CC300D5F368 /* TaskServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServices.swift; sourceTree = "<group>"; };
+		C94A3B3622690CDE00D5F368 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		C94A3B3822690D2800D5F368 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		C9D6DF76226024BF00D92D1C /* Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Manager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D6DF79226024BF00D92D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9D6DF7B226024BF00D92D1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 		C9D6DFAB226024E800D92D1C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C94A3B3422690CC300D5F368 /* TaskServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 		C9D6DFAC2260250C00D92D1C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C94A3B3822690D2800D5F368 /* empty.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -156,6 +163,7 @@
 		C9D6DFAD2260259900D92D1C /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				C94A3B3622690CDE00D5F368 /* Task.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 				C9D6DF87226024BF00D92D1C /* LaunchScreen.storyboard in Resources */,
 				C9D6DF84226024BF00D92D1C /* Assets.xcassets in Resources */,
 				C9D6DF7F226024BF00D92D1C /* Main.storyboard in Resources */,
+				C94A3B3522690CC300D5F368 /* TaskServices.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94A3B3722690CDE00D5F368 /* Task.swift in Sources */,
 				C9D6DF7C226024BF00D92D1C /* ViewController.swift in Sources */,
 				C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */,
 				C9D6DF82226024BF00D92D1C /* Manager.xcdatamodeld in Sources */,
