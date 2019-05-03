@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C94A3B3522690CC300D5F368 /* TaskServices.swift in Resources */ = {isa = PBXBuildFile; fileRef = C94A3B3422690CC300D5F368 /* TaskServices.swift */; };
+		C9093175227BA0EB00FD321C /* TaskServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A3B3422690CC300D5F368 /* TaskServices.swift */; };
 		C94A3B3722690CDE00D5F368 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A3B3622690CDE00D5F368 /* Task.swift */; };
 		C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6DF79226024BF00D92D1C /* AppDelegate.swift */; };
 		C9D6DF7C226024BF00D92D1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6DF7B226024BF00D92D1C /* ViewController.swift */; };
@@ -275,7 +275,6 @@
 				C9D6DF87226024BF00D92D1C /* LaunchScreen.storyboard in Resources */,
 				C9D6DF84226024BF00D92D1C /* Assets.xcassets in Resources */,
 				C9D6DF7F226024BF00D92D1C /* Main.storyboard in Resources */,
-				C94A3B3522690CC300D5F368 /* TaskServices.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +302,7 @@
 				C94A3B3722690CDE00D5F368 /* Task.swift in Sources */,
 				C9D6DF7C226024BF00D92D1C /* ViewController.swift in Sources */,
 				C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */,
+				C9093175227BA0EB00FD321C /* TaskServices.swift in Sources */,
 				C9D6DF82226024BF00D92D1C /* Manager.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
