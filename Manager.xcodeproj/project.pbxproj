@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55D295D3227E311E00E1DCF4 /* WeeklyOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D295D2227E311E00E1DCF4 /* WeeklyOverview.swift */; };
+		55D295D5227E4DC100E1DCF4 /* HoursWeeklyOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D295D4227E4DC100E1DCF4 /* HoursWeeklyOverview.swift */; };
 		C9093175227BA0EB00FD321C /* TaskServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A3B3422690CC300D5F368 /* TaskServices.swift */; };
 		C94A3B3722690CDE00D5F368 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A3B3622690CDE00D5F368 /* Task.swift */; };
 		C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6DF79226024BF00D92D1C /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		55D295D2227E311E00E1DCF4 /* WeeklyOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyOverview.swift; sourceTree = "<group>"; };
+		55D295D4227E4DC100E1DCF4 /* HoursWeeklyOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursWeeklyOverview.swift; sourceTree = "<group>"; };
 		C94A3B3422690CC300D5F368 /* TaskServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServices.swift; sourceTree = "<group>"; };
 		C94A3B3622690CDE00D5F368 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C94A3B3822690D2800D5F368 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				C9D6DF7B226024BF00D92D1C /* ViewController.swift */,
 				55D295D2227E311E00E1DCF4 /* WeeklyOverview.swift */,
+				55D295D4227E4DC100E1DCF4 /* HoursWeeklyOverview.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D295D5227E4DC100E1DCF4 /* HoursWeeklyOverview.swift in Sources */,
 				C94A3B3722690CDE00D5F368 /* Task.swift in Sources */,
 				C9D6DF7C226024BF00D92D1C /* ViewController.swift in Sources */,
 				C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */,
