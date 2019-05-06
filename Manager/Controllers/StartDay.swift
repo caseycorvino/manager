@@ -62,12 +62,12 @@ class StartDay: UIViewController {
             }
         }
         let maxSize = CGSize(width: 150, height: 100)
-        task1.frame = CGRect(origin: CGPoint(x: 205, y: 225), size: task1.sizeThatFits(maxSize))
-        task2.frame = CGRect(origin: CGPoint(x: 205, y: 255), size: task2.sizeThatFits(maxSize))
-        task3.frame = CGRect(origin: CGPoint(x: 205, y: 285), size: task3.sizeThatFits(maxSize))
-        task4.frame = CGRect(origin: CGPoint(x: 205, y: 315), size: task4.sizeThatFits(maxSize))
-        task5.frame = CGRect(origin: CGPoint(x: 205, y: 345), size: task5.sizeThatFits(maxSize))
-        task6.frame = CGRect(origin: CGPoint(x: 205, y: 375), size: task6.sizeThatFits(maxSize))
+        task1.frame = CGRect(origin: CGPoint(x: 205-task1.sizeThatFits(maxSize).width/2, y: 225), size: task1.sizeThatFits(maxSize))
+        task2.frame = CGRect(origin: CGPoint(x: 205-task2.sizeThatFits(maxSize).width/2, y: 255), size: task2.sizeThatFits(maxSize))
+        task3.frame = CGRect(origin: CGPoint(x: 205-task3.sizeThatFits(maxSize).width/2, y: 285), size: task3.sizeThatFits(maxSize))
+        task4.frame = CGRect(origin: CGPoint(x: 205-task4.sizeThatFits(maxSize).width/2, y: 315), size: task4.sizeThatFits(maxSize))
+        task5.frame = CGRect(origin: CGPoint(x: 205-task5.sizeThatFits(maxSize).width/2, y: 345), size: task5.sizeThatFits(maxSize))
+        task6.frame = CGRect(origin: CGPoint(x: 205-task6.sizeThatFits(maxSize).width/2, y: 375), size: task6.sizeThatFits(maxSize))
     }
     
     @IBAction func dayStartStop(_ sender: Any) {
