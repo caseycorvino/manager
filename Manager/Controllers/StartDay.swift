@@ -9,7 +9,28 @@
 import UIKit
 
 class StartDay: UIViewController {
+    
+    @IBOutlet weak var startStopButton: UIButton!
+    
+    @IBOutlet weak var task1: UILabel!
+    @IBOutlet weak var task2: UILabel!
+    @IBOutlet weak var task3: UILabel!
+    @IBOutlet weak var task4: UILabel!
+    @IBOutlet weak var task5: UILabel!
+    @IBOutlet weak var task6: UILabel!
+    
+    @IBOutlet weak var MonthLabel: UILabel!
+    @IBOutlet weak var Day1: UILabel!
+    @IBOutlet weak var Day2: UILabel!
+    @IBOutlet weak var Day3: UILabel!
+    @IBOutlet weak var Day4: UILabel!
+    @IBOutlet weak var Day5: UILabel!
+    @IBOutlet weak var Day6: UILabel!
+    @IBOutlet weak var Day7: UILabel!
 
+    let taskServices = TaskServices()
+    let utils = Utils()
+    
     var startTime = NSDate()
     var endTime = NSDate()
     var started = false
@@ -17,31 +38,15 @@ class StartDay: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        refresh()
+        
+        let daysArray = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
+        utils.setDates(today: 3, month: MonthLabel, days: daysArray as! Array<UILabel>)
+        
+//        refresh()
         // Do any additional setup after loading the view.
     }
-    func refresh(){
-        let currentDate = NSDate()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd"
-        D0.text = dateFormatter.string(from: currentDate as Date)
-        var calculatedDate = currentDate.addingTimeInterval(86400)
-        D1.text = dateFormatter.string(from: calculatedDate as Date)
-        calculatedDate = calculatedDate.addingTimeInterval(86400)
-        D2.text = dateFormatter.string(from: calculatedDate as Date)
-        calculatedDate = calculatedDate.addingTimeInterval(86400)
-        D3.text = dateFormatter.string(from: calculatedDate as Date)
-        calculatedDate = currentDate.addingTimeInterval(-86400)
-        Dm1.text = dateFormatter.string(from: calculatedDate as Date)
-        calculatedDate = calculatedDate.addingTimeInterval(-86400)
-        Dm2.text = dateFormatter.string(from: calculatedDate as Date)
-        calculatedDate = calculatedDate.addingTimeInterval(-86400)
-        Dm3.text = dateFormatter.string(from: calculatedDate as Date)
-        calculatedDate = calculatedDate.addingTimeInterval(-86400)
-        dateFormatter.dateFormat = "MMMM"
-        Month.text = dateFormatter.string(from: currentDate as Date)
-        dateFormatter.dateFormat = "MMMM dd, yyyy"
-        Date.text = dateFormatter.string(from: currentDate as Date)
+    func refresh() {
+        
         let tasks = taskServices.LoadTasks()
         if(tasks.count > 0){
             task1.text = tasks[i].title
@@ -69,7 +74,7 @@ class StartDay: UIViewController {
         task5.frame = CGRect(origin: CGPoint(x: 205-task5.sizeThatFits(maxSize).width/2, y: 345), size: task5.sizeThatFits(maxSize))
         task6.frame = CGRect(origin: CGPoint(x: 205-task6.sizeThatFits(maxSize).width/2, y: 375), size: task6.sizeThatFits(maxSize))
     }
-    
+
     @IBAction func dayStartStop(_ sender: Any) {
         if(!started){
             startTime = NSDate()
@@ -85,25 +90,7 @@ class StartDay: UIViewController {
             }
         }
     }
-    @IBOutlet weak var startStopButton: UIButton!
     
-    @IBOutlet weak var task1: UILabel!
-    @IBOutlet weak var task2: UILabel!
-    @IBOutlet weak var task3: UILabel!
-    @IBOutlet weak var task4: UILabel!
-    @IBOutlet weak var task5: UILabel!
-    @IBOutlet weak var task6: UILabel!
-    
-    
-    @IBOutlet weak var Date: UILabel!
-    @IBOutlet weak var Month: UILabel!
-    @IBOutlet weak var Dm3: UILabel!
-    @IBOutlet weak var Dm2: UILabel!
-    @IBOutlet weak var Dm1: UILabel!
-    @IBOutlet weak var D0: UILabel!
-    @IBOutlet weak var D1: UILabel!
-    @IBOutlet weak var D2: UILabel!
-    @IBOutlet weak var D3: UILabel!
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
 

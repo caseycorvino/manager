@@ -44,6 +44,25 @@ class Utils: UIViewController {
         return String(calendar.component(.day, from: day1!))
     }
     
+    // Sets dates for an array of dates
+    // Today is the index in the array of dates that will be today
+    func setDates(today: Int, month: UILabel, days: Array<UILabel>) {
+        let now = Date()
+        let dateFormatter = DateFormatter()
+//        let calendar = Calendar.current
+        
+        dateFormatter.dateFormat = "LLLL"
+        month.text = dateFormatter.string(from: now)
+        
+        for i in 0...6 {
+            days[i].text = getDateAgoString(days:(today - i))
+            days[i].textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+        }
+        month.textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+        days[today].textColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:1.0)
+        
+    }
+    
     func createImage(Name: String) -> UIImageView {
         let imageName = Name
         let image = UIImage(named: imageName)
