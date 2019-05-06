@@ -11,7 +11,7 @@ import Foundation
 class Task:NSObject, NSCoding {
     
     //iD
-    var id: Int;
+    var id: NSNumber;
     
     //Title property.
     var title: String;
@@ -29,7 +29,7 @@ class Task:NSObject, NSCoding {
         self.title = title;
         self.estimation = estimation;
         self.day = day;
-        self.id = id;
+        self.id = id as NSNumber;
     }
     
     // Helper function to get time worked converted to minutes. If missing start or end time return -1;
@@ -48,7 +48,7 @@ class Task:NSObject, NSCoding {
      Decoding when loaded from User Defaults
      */
     required init(coder decoder: NSCoder) {
-        self.id = decoder.decodeObject(forKey: "id") as! Int;
+        self.id = decoder.decodeObject(forKey: "id") as! NSNumber;
         self.title = decoder.decodeObject(forKey: "title") as! String;
         self.estimation = decoder.decodeObject(forKey: "estimation") as! String;
         self.start = decoder.decodeObject(forKey: "start") as? Date;
