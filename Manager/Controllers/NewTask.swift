@@ -16,11 +16,14 @@ class NewTask: UIViewController {
     }
     
     @IBOutlet weak var taskName: UITextField!
+    @IBAction func backButton(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
     @IBAction func closePopUp0(_ sender: Any) {
         if(taskName.text != nil){
             taskServices.NewTask(title: taskName.text as! String, estimation: String(1), day: Date())
+            
             self.view.removeFromSuperview()
-    
         }
     }
     

@@ -10,8 +10,16 @@ import UIKit
 
 class StartDay: UIViewController {
 
+    var startTime = NSDate()
+    var endTime = NSDate()
+    var started = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresh()
+        // Do any additional setup after loading the view.
+    }
+    func refresh(){
         let currentDate = NSDate()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
@@ -33,40 +41,63 @@ class StartDay: UIViewController {
         Month.text = dateFormatter.string(from: currentDate as Date)
         dateFormatter.dateFormat = "MMMM dd, yyyy"
         Date.text = dateFormatter.string(from: currentDate as Date)
-        if(taskServices.GetTask(id: 0) != nil){
-            OngoingTasks1.text = taskServices.GetTask(id: 0)!.title
-        }else{ OngoingTasks1.text = ""}
-        if(taskServices.GetTask(id: 1) != nil){
-            OngoingTasks2.text = taskServices.GetTask(id: 1)!.title
-        }else{ OngoingTasks2.text = ""}
-        let newT = taskServices.LoadTasks(start: currentDate as Date, end: currentDate.addingTimeInterval(86400) as Date)
-        if(newT.count >= 1){
-            NewTasks1.text = newT[0].title
-            if(newT.count >= 2){
-                NewTasks2.text = newT[1].title
-            }else{
-                NewTasks2.text = ""
+        let tasks = taskServices.LoadTasks()
+        if(tasks.count > 0){
+            task1.text = tasks[0].title
+            if(tasks.count > 1){
+                task2.text = tasks[1].title
+                if(tasks.count > 2){
+                    task3.text = tasks[2].title
+                    if(tasks.count > 3){
+                        task4.text = tasks[3].title
+                        if(tasks.count > 4){
+                            task5.text = tasks[4].title
+                            if(tasks.count > 5){
+                                task6.text = tasks[5].title
+                            }
+                        }
+                    }
+                }
             }
-        }else{
-            NewTasks1.text = ""
         }
-        // Do any additional setup after loading the view.
+        let maxSize = CGSize(width: 150, height: 100)
+        task1.frame = CGRect(origin: CGPoint(x: 205, y: 225), size: task1.sizeThatFits(maxSize))
+        task2.frame = CGRect(origin: CGPoint(x: 205, y: 255), size: task2.sizeThatFits(maxSize))
+        task3.frame = CGRect(origin: CGPoint(x: 205, y: 285), size: task3.sizeThatFits(maxSize))
+        task4.frame = CGRect(origin: CGPoint(x: 205, y: 315), size: task4.sizeThatFits(maxSize))
+        task5.frame = CGRect(origin: CGPoint(x: 205, y: 345), size: task5.sizeThatFits(maxSize))
+        task6.frame = CGRect(origin: CGPoint(x: 205, y: 375), size: task6.sizeThatFits(maxSize))
     }
     
+    @IBAction func dayStartStop(_ sender: Any) {
+        if(!started){
+            startTime = NSDate()
+            startStopButton.setTitle("END MY DAY", for: .normal)
+            started = true
+        }else{
+            endTime = NSDate()
+            startStopButton.setTitle("START MY DAY", for: .normal)
+            started = false
+        }
+    }
+    @IBOutlet weak var startStopButton: UIButton!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is Day
+        /*if segue.destination is Day
         {
             let vc = segue.destination as? Day
             vc?.timeStarted = NSDate()
-        }
+        }*/
     }
     
+    @IBOutlet weak var task1: UILabel!
+    @IBOutlet weak var task2: UILabel!
+    @IBOutlet weak var task3: UILabel!
+    @IBOutlet weak var task4: UILabel!
+    @IBOutlet weak var task5: UILabel!
+    @IBOutlet weak var task6: UILabel!
     
-    @IBOutlet weak var OngoingTasks1: UILabel!
-    @IBOutlet weak var OngoingTasks2: UILabel!
-    @IBOutlet weak var NewTasks1: UILabel!
-    @IBOutlet weak var NewTasks2: UILabel!
+    
     @IBOutlet weak var Date: UILabel!
     @IBOutlet weak var Month: UILabel!
     @IBOutlet weak var Dm3: UILabel!
@@ -85,6 +116,7 @@ class StartDay: UIViewController {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParent: self)
+        refresh()
     }
     
     /*
