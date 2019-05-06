@@ -79,7 +79,7 @@ class StartDay: UIViewController {
             endTime = NSDate()
             startStopButton.setTitle("START MY DAY", for: .normal)
             started = false
-            for t in taskServices.LoadTasks(){
+            for t in taskServices.LoadTasks(start: NSDate() as Date, end: NSDate().addingTimeInterval(86400) as Date){
                 t.start = startTime as Date
                 t.end = endTime as Date
             }
