@@ -11,11 +11,13 @@ import Foundation
 class TaskServices {
     
     /*
-     // Example on how to use in psuedocode:
-     // Get tasks for today:
+     Example on how to use:
+     
+     Get tasks for today:
      tasks = taskService.LoadTasks(Date(), Date() + 1 day);
      
-     // Some event that passes task id. ex. Set start time:
+     
+     Some event that passes task id. ex. Set start time:
      task = taskService.GetTask(id);
      task.startTime = Date();
      taskService.UpdateTask(task);
@@ -84,6 +86,9 @@ class TaskServices {
         return [];
     }
     
+    /*
+     Set start time to now for all tasks today.
+     */
     func setStartTime(){
         var calendar = NSCalendar.current;
         calendar.timeZone = NSTimeZone.local;
@@ -96,6 +101,9 @@ class TaskServices {
         }
     }
     
+    /*
+     Set end time to now for all tasks today.
+     */
     func setEndTime(){
         var calendar = NSCalendar.current;
         calendar.timeZone = NSTimeZone.local;

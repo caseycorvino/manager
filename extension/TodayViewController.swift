@@ -22,7 +22,10 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
         if #available(iOSApplicationExtension 10.0, *) {
             self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         }
-        tasks = taskServices.LoadTasks(start: Date(), end: Date(timeInterval: 86400, since: Date()));
+        var calendar = NSCalendar.current
+        calendar.timeZone = NSTimeZone.local;
+        let startDay = calendar.startOfDay(for: Date());
+        tasks = taskServices.LoadTasks(start: startDay, end: Date(timeInterval: 86400, since: startDay));
         print(tasks.count);
     }
     
@@ -30,7 +33,7 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
     @available(iOSApplicationExtension 10.0, *)
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
-            self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: CGFloat(tasks.count)*44)
+            self.preferredContentSize = CGSize(width: self.view.frame.size.width, height: CGFloat(tasks.count) * 44 + 110)
         }else if activeDisplayMode == .compact{
             self.preferredContentSize = CGSize(width: maxSize.width, height: 110)
         }

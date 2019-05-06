@@ -13,14 +13,13 @@
         <!--Today View Controller-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController autoresizesArchivedViewToFullSize="NO" id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="extension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jT7-4q-baC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="190"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kEZ-BQ-ket">
@@ -37,12 +36,24 @@
                                     <outlet property="delegate" destination="M4Y-Lb-cyx" id="GXU-Ve-TEA"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Tasks!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-sd-dOp">
+                                <rect key="frame" x="113" y="47" width="149.5" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="149.5" id="4i7-0f-RQ2"/>
+                                    <constraint firstAttribute="height" constant="29" id="oZt-Cg-FsB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Mkr-sd-dOp" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="EdE-L7-aCq"/>
+                            <constraint firstItem="Mkr-sd-dOp" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="47" id="M4M-Sr-NLh"/>
                             <constraint firstItem="jT7-4q-baC" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="MAa-Eq-4aZ"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="jT7-4q-baC" secondAttribute="trailing" id="RTn-SQ-Qg3"/>
                             <constraint firstItem="jT7-4q-baC" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Vlp-r4-JbQ"/>
-                            <constraint firstItem="jT7-4q-baC" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="mdc-I4-x1Z"/>
+                            <constraint firstItem="jT7-4q-baC" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="110" id="mdc-I4-x1Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
@@ -53,8 +64,9 @@
                         <outlet property="tableView" destination="jT7-4q-baC" id="yr0-ej-2tE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-75.200000000000003" y="60.26986506746627"/>
+            <point key="canvasLocation" x="-76" y="60.26986506746627"/>
         </scene>
     </scenes>
 </document>
