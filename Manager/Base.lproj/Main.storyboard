@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rf5-W4-b5A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rf5-W4-b5A">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -126,6 +126,30 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-nL-8fl">
+                                <rect key="frame" x="135" y="753" width="145" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Weekly Report">
+                                    <color key="titleColor" red="0.54729688170000002" green="0.25138008589999999" blue="0.23920083049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewWeeklyReport:" destination="xlj-1g-BDk" eventType="touchUpInside" id="PSC-iE-Vwz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktZ-Vw-9tC">
+                                <rect key="frame" x="339" y="57" width="50" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="WeekBtn"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llF-en-47I">
+                                <rect key="frame" x="25" y="57" width="50" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="DayBtn"/>
+                                <connections>
+                                    <segue destination="Rf5-W4-b5A" kind="show" id="v6E-Sb-FaI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uOa-dg-4lK"/>
@@ -139,11 +163,12 @@
                         <outlet property="Day6" destination="lSf-eY-Rxn" id="Ql5-M6-lP4"/>
                         <outlet property="Day7" destination="xce-cd-kVS" id="lED-Zd-dNJ"/>
                         <outlet property="MonthLabel" destination="Qlf-49-Jmx" id="DRG-xB-6yL"/>
+                        <outlet property="WeeklyReportBtn" destination="6D3-nL-8fl" id="2tb-zl-8T4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3c-Ge-Y9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1407" y="21"/>
+            <point key="canvasLocation" x="1405.7971014492755" y="20.758928571428569"/>
         </scene>
         <!--Hours Weekly Overview-->
         <scene sceneID="QvQ-Ng-I3d">
@@ -248,6 +273,19 @@
                                     <segue destination="xlj-1g-BDk" kind="show" id="Oet-mm-Xp2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBm-6B-b3M">
+                                <rect key="frame" x="339" y="54" width="50" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="WeekBtn"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6W-Mr-OsW">
+                                <rect key="frame" x="25" y="54" width="50" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="DayBtn"/>
+                                <connections>
+                                    <segue destination="Rf5-W4-b5A" kind="show" id="Bzy-mI-H0f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="c9y-Rj-UiH"/>
@@ -265,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyR-H5-zFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2155" y="21"/>
+            <point key="canvasLocation" x="2153.6231884057975" y="20.758928571428569"/>
         </scene>
         <!--Start Day-->
         <scene sceneID="Acg-5u-9Z0">
@@ -416,8 +454,23 @@
                                 <rect key="frame" x="196" y="416" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="showPopUp:" destination="Rf5-W4-b5A" eventType="touchUpInside" id="pbe-jB-la3"/>
+                                    <segue destination="srA-9t-h6p" kind="popoverPresentation" popoverAnchorView="EK2-dI-uaj" id="Z2D-QT-J9B">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6x-ja-lIX">
+                                <rect key="frame" x="344" y="52" width="50" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="WeekBtn"/>
+                                <connections>
+                                    <segue destination="xlj-1g-BDk" kind="show" id="wm7-IJ-A4s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5j-Gi-RkN">
+                                <rect key="frame" x="30" y="52" width="50" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="DayBtn"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -535,6 +588,7 @@
                     </view>
                     <connections>
                         <outlet property="taskName" destination="9MH-xd-754" id="SLm-lt-Izb"/>
+                        <segue destination="aXM-BB-5Fd" kind="unwind" identifier="unwindSegue" unwindAction="unwindToVC1WithSegue:" id="74g-Pb-2Vd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pK7-b3-YAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -547,9 +601,12 @@
         <image name="Background" width="414" height="736"/>
         <image name="ButtonNoBorder" width="90" height="39"/>
         <image name="ButtonWhiteBorder" width="90" height="39"/>
+        <image name="DayBtn" width="540" height="480"/>
+        <image name="WeekBtn" width="536" height="480"/>
         <image name="WhiteLine" width="414" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Bzy-mI-H0f"/>
         <segue reference="Oet-mm-Xp2"/>
     </inferredMetricsTieBreakers>
 </document>
