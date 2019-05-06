@@ -30,6 +30,7 @@ class WeeklyOverview: UIViewController {
         setDates()
         
 //        let testTasks = [2,1,0,6,3,2,4]
+//        setCircles(tasks: testTasks)
         setCircles(tasks: getTasksCount())
     }
     
@@ -67,12 +68,13 @@ class WeeklyOverview: UIViewController {
     func getTasksCount() -> Array<Int> {
         var tasksCount = [0,0,0,0,0,0,0];
         
-        for i in 0...6 {
+        for i in (0...6) {
             var times = utils.getDateStartEnd(date: utils.getDateAgo(days: i))
             tasksCount[i] = (taskServices.LoadTasks(start:times[0], end:times[1])).count
+            
         }
         
-        return tasksCount
+        return tasksCount.reversed()
     }
     
     func getTotalTasks(tasks: Array<Int>) -> Int {
