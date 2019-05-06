@@ -83,6 +83,7 @@ class TaskServices {
         }
         return [];
     }
+    
     func setStartTime(){
         var calendar = NSCalendar.current;
         calendar.timeZone = NSTimeZone.local;
@@ -94,6 +95,7 @@ class TaskServices {
             _ = UpdateTask(task: task);
         }
     }
+    
     func setEndTime(){
         var calendar = NSCalendar.current;
         calendar.timeZone = NSTimeZone.local;
@@ -106,8 +108,6 @@ class TaskServices {
         }
     }
 
-    
-    
     /*
      Get Tasks in between dates.
      */
@@ -135,7 +135,6 @@ class TaskServices {
         }
         return totalTime;
     }
-    
     
     /* ======== helper functions ======= */
     /*
