@@ -66,7 +66,7 @@ class HoursWeeklyOverview: UIViewController {
         for i in 0...6 {
             var times = utils.getDateStartEnd(date: utils.getDateAgo(days: i))
             
-            hours[i] = taskServices.timeWorkedInMinutes(start: times[0], end: times[1])
+            hours[i] = taskServices.LoadTasks(start: times[0], end: times[1])[0].timeWorkedInMinutes()
         }
         return hours
     }
