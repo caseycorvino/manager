@@ -27,8 +27,8 @@ class HoursWeeklyOverview: UIViewController {
 
         setDates()
         
-        let testHours = [4, 0, 8, 6, 0, 5, 2]
-        setBars(hours: testHours)
+//        let testHours = [4, 0, 8, 6, 0, 5, 2]
+        setBars(hours: getHours())
         // Do any additional setup after loading the view.
     }
     
