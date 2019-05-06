@@ -34,6 +34,15 @@ class WeeklyOverview: UIViewController {
     }
     
     
+    @IBAction func viewWeeklyReport(_ sender: Any) {
+        print("Hello")
+        
+        let overlay = utils.createImage(Name: "GrayOverlay.png")
+        
+        overlay.frame = CGRect(x: 0, y: 200, width: 500, height: 400)
+        view.addSubview(overlay)
+        
+    }
     // Set correct number of task circles per day
     func setCircles(tasks: Array<Int>) {
         let daysText = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
@@ -66,6 +75,34 @@ class WeeklyOverview: UIViewController {
         return tasksCount
     }
     
+    func getTotalTasks(tasks: Array<Int>) -> Int {
+        var total = 0
+        for i in tasks {
+            total += i
+        }
+        return total
+    }
+    func getHighestTasks(tasks: Array<Int>) -> Int {
+        var highest  = tasks[0]
+        for i in 0...6 {
+            if (tasks[i] > highest) {
+                highest = tasks[i]
+            }
+        }
+        return highest
+    }
+    func getAvg(total: Int) -> Int {
+        return total / 7
+    }
+    func getDaysWorked(tasks: Array<Int>) -> Int {
+        var count = 0
+        for i in tasks {
+            if (i > 0) {
+                count += 1
+            }
+        }
+        return count
+    }
     
     func setDates() {
         let now = Date()
