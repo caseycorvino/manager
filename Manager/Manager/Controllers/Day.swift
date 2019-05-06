@@ -10,6 +10,7 @@ import UIKit
 
 class Day: UIViewController {
 
+    let taskServices = TaskServices()
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentDate = NSDate()
@@ -35,6 +36,24 @@ class Day: UIViewController {
         Date.text = dateFormatter.string(from: currentDate as Date)
         dateFormatter.dateFormat = "h:mm a"
         Time.text = dateFormatter.string(from: timeStarted as Date)
+        
+        if(taskServices.GetTask(id: 0) != nil){
+            OngoingTask1.text = taskServices.GetTask(id: 0)!.title
+        }else{ OngoingTask1.text = ""}
+        if(taskServices.GetTask(id: 1) != nil){
+            OngoingTask2.text = taskServices.GetTask(id: 1)!.title
+        }else{ OngoingTask2.text = ""}
+        let newT = taskServices.LoadTasks(start: currentDate as Date, end: currentDate.addingTimeInterval(86400) as Date)
+        if(newT.count >= 1){
+            NewTask1.text = newT[0].title
+            if(newT.count >= 2){
+                NewTask2.text = newT[1].title
+            }else{
+                NewTask2.text = ""
+            }
+        }else{
+            NewTask1.text = ""
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func showPopUp(_ sender: Any) {
@@ -49,6 +68,13 @@ class Day: UIViewController {
     @IBAction func endDay(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    @IBOutlet weak var OngoingTask1: UILabel!
+    @IBOutlet weak var OngoingTask2: UILabel!
+    @IBOutlet weak var NewTask1: UILabel!
+    @IBOutlet weak var NewTask2: UILabel!
+    
     var timeStarted: NSDate!
     @IBOutlet weak var Month: UILabel!
     @IBOutlet weak var Dm3: UILabel!

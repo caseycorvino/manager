@@ -10,6 +10,8 @@ import UIKit
 
 class StartDay: UIViewController {
 
+    let taskServices = TaskServices()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentDate = NSDate()

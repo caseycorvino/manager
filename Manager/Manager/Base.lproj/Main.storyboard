@@ -758,6 +758,10 @@
                         <outlet property="Dm2" destination="Z2F-Bj-oEB" id="yhV-RX-oNu"/>
                         <outlet property="Dm3" destination="R1m-SU-X0g" id="bYe-9S-act"/>
                         <outlet property="Month" destination="uEU-cD-5Jf" id="2bf-0D-wX5"/>
+                        <outlet property="NewTask1" destination="wTl-hg-exf" id="Tpz-bN-Gsi"/>
+                        <outlet property="NewTask2" destination="gpT-8X-qtP" id="cyb-C5-CVA"/>
+                        <outlet property="OngoingTask1" destination="wTl-hg-exf" id="RYb-mR-ZLq"/>
+                        <outlet property="OngoingTask2" destination="d3w-xh-t7R" id="jTf-oH-s74"/>
                         <outlet property="Time" destination="Udg-G1-a3b" id="kDB-k5-xsA"/>
                     </connections>
                 </viewController>
