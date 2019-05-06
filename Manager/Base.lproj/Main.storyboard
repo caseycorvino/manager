@@ -454,7 +454,9 @@
                                 <rect key="frame" x="196" y="416" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="showPopUp:" destination="Rf5-W4-b5A" eventType="touchUpInside" id="pbe-jB-la3"/>
+                                    <segue destination="srA-9t-h6p" kind="popoverPresentation" popoverAnchorView="EK2-dI-uaj" id="Z2D-QT-J9B">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6x-ja-lIX">
@@ -586,6 +588,7 @@
                     </view>
                     <connections>
                         <outlet property="taskName" destination="9MH-xd-754" id="SLm-lt-Izb"/>
+                        <segue destination="aXM-BB-5Fd" kind="unwind" identifier="unwindSegue" unwindAction="unwindToVC1WithSegue:" id="74g-Pb-2Vd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pK7-b3-YAK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@ class StartDay: UIViewController {
     var startTime = NSDate()
     var endTime = NSDate()
     var started = false
+    var i = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,17 +44,17 @@ class StartDay: UIViewController {
         Date.text = dateFormatter.string(from: currentDate as Date)
         let tasks = taskServices.LoadTasks()
         if(tasks.count > 0){
-            task1.text = tasks[0].title
+            task1.text = tasks[i].title
             if(tasks.count > 1){
-                task2.text = tasks[1].title
+                task2.text = tasks[i+1].title
                 if(tasks.count > 2){
-                    task3.text = tasks[2].title
+                    task3.text = tasks[i+2].title
                     if(tasks.count > 3){
-                        task4.text = tasks[3].title
+                        task4.text = tasks[i+3].title
                         if(tasks.count > 4){
-                            task5.text = tasks[4].title
+                            task5.text = tasks[i+4].title
                             if(tasks.count > 5){
-                                task6.text = tasks[5].title
+                                task6.text = tasks[i+5].title
                             }
                         }
                     }
@@ -78,17 +79,13 @@ class StartDay: UIViewController {
             endTime = NSDate()
             startStopButton.setTitle("START MY DAY", for: .normal)
             started = false
+            for t in taskServices.LoadTasks(start: NSDate() as Date, end: NSDate().addingTimeInterval(86400) as Date){
+                t.start = startTime as Date
+                t.end = endTime as Date
+            }
         }
     }
     @IBOutlet weak var startStopButton: UIButton!
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        /*if segue.destination is Day
-        {
-            let vc = segue.destination as? Day
-            vc?.timeStarted = NSDate()
-        }*/
-    }
     
     @IBOutlet weak var task1: UILabel!
     @IBOutlet weak var task2: UILabel!
@@ -108,17 +105,8 @@ class StartDay: UIViewController {
     @IBOutlet weak var D2: UILabel!
     @IBOutlet weak var D3: UILabel!
     
-    
-    @IBAction func showPopUp(_ sender: Any) {
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newTaskID") as! NewTask
-        
-        self.addChild(popOverVC)
-        popOverVC.view.frame = self.view.frame
-        self.view.addSubview(popOverVC.view)
-        popOverVC.didMove(toParent: self)
-        refresh()
-    }
-    
+    @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
+
     /*
     // MARK: - Navigation
 
@@ -130,3 +118,4 @@ class StartDay: UIViewController {
     */
 
 }
+
