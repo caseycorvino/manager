@@ -20,15 +20,20 @@ class WeeklyOverview: UIViewController {
     @IBOutlet weak var Day6: UILabel!
     @IBOutlet weak var Day7: UILabel!
     
+    let taskServices = TaskServices()
+    let utils = Utils()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setDates()
         
-
+//        let testTasks = [2,1,0,6,3,2,4]
+        setCircles(tasks: getTasksCount())
     }
     
-    func createTask() -> UIImageView {
+    // Create circle icon
+    func createTaskCircle() -> UIImageView {
         let imageName = "TaskCirclex4.png"
         let image = UIImage(named: imageName)
         let TaskCircle = UIImageView(image: image!)
@@ -36,20 +41,39 @@ class WeeklyOverview: UIViewController {
         return TaskCircle
     }
     
-    func setTasks() {
-        let tasks = getTasksCount()
+    // Set correct number of task circles per day
+    func setCircles(tasks: Array<Int>) {
+        let daysText = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
         
-        for tasks in tasks {
-            
+        for i in 0...tasks.count-1 {
+            if tasks[i] > 0 {
+                for j in 1...tasks[i] {
+                    let dayFrame = daysText[i]?.frame
+                    let newCircle = createTaskCircle()
+                    newCircle.frame = CGRect(
+                        x: dayFrame!.origin.x + CGFloat(10),
+                        y: dayFrame!.origin.y + CGFloat(j*40) + 20,
+                        width: 20,
+                        height: 20)
+                    view.addSubview(newCircle)
+                }
+            }
         }
     }
     
-    func getDateAgo(days: Int) -> String {
-        let calendar = Calendar.current
+    // Return array of task counts for the past week, in reverse days order
+    func getTasksCount() -> Array<Int> {
+        var tasksCount = [0,0,0,0,0,0,0];
         
-        let day1 = calendar.date(byAdding: .day, value: days * -1, to: Date())
-        return String(calendar.component(.day, from: day1!))
+        for i in 0...6 {
+            var times = utils.getDateStartEnd(date: utils.getDateAgo(days: i))
+            tasksCount[i] = (taskServices.LoadTasks(start:times[0], end:times[1])).count
+        }
+        
+        return tasksCount
     }
+    
+    
     func setDates() {
         let now = Date()
         let dateFormatter = DateFormatter()
@@ -59,34 +83,17 @@ class WeeklyOverview: UIViewController {
         
         let calendar = Calendar.current
         
-        Day1.text = getDateAgo(days:6)
-        Day2.text = getDateAgo(days:5)
-        Day3.text = getDateAgo(days:4)
-        Day4.text = getDateAgo(days:3)
-        Day5.text = getDateAgo(days:2)
-        Day6.text = getDateAgo(days:1)
+        Day1.text = utils.getDateAgoString(days:6)
+        Day2.text = utils.getDateAgoString(days:5)
+        Day3.text = utils.getDateAgoString(days:4)
+        Day4.text = utils.getDateAgoString(days:3)
+        Day5.text = utils.getDateAgoString(days:2)
+        Day6.text = utils.getDateAgoString(days:1)
         Day7.text = String(calendar.component(.day, from: now))
         
-        Day7.textColor = UIColor(red: 254, green: 221, blue: 101, alpha: 1.0)
-    }
-    func getTasksCount() -> Array<Int> {
-        var tasksCount:[Int] = [0,0,0,0,0,0,0];
-        
-        // query tasks and count how many tasks per day
-        
-        return tasksCount
+        Day7.textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     
 }

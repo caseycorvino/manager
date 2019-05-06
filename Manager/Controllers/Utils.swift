@@ -16,15 +16,32 @@ class Utils: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getDateStartEnd(date: Date) -> Array<Date> {
+        var calendar = Calendar.current
+        
+        calendar.timeZone = TimeZone(abbreviation: "UTC")! //OR NSTimeZone.localTimeZone()
+        let dateAtMidnight = calendar.startOfDay(for: date)
+        
+        //For End Date
+        let components = NSDateComponents()
+        components.day = 1
+        components.second = -1
+        
+        let dateAtEnd = calendar.date(byAdding: .day, value: 1, to: dateAtMidnight)
+        
+        return [dateAtMidnight, dateAtEnd!]
     }
-    */
+    func getDateAgo(days: Int) -> Date {
+        let calendar = Calendar.current
+        
+        return calendar.date(byAdding: .day, value: days * -1, to: Date())!
+    }
+    
+    func getDateAgoString(days: Int) -> String {
+        let calendar = Calendar.current
+        
+        let day1 = calendar.date(byAdding: .day, value: days * -1, to: Date())
+        return String(calendar.component(.day, from: day1!))
+    }
 
 }
