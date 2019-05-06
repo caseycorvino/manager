@@ -32,15 +32,6 @@ class HoursWeeklyOverview: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    // Create hours bar
-    func createHoursBar() -> UIImageView {
-        let imageName = "HoursBar.png"
-        let image = UIImage(named: imageName)
-        let HoursBar = UIImageView(image: image!)
-        HoursBar.contentMode = .scaleToFill
-        return HoursBar
-    }
-    
     func setBars(hours: Array<Int>) {
         print("Setting hour bars...\n")
         let daysText = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
@@ -50,7 +41,8 @@ class HoursWeeklyOverview: UIViewController {
             if hours[i] > 0 {
 
                 let dayFrame = daysText[i]?.frame
-                let newBar = createHoursBar()
+                let newBar = utils.createImage(Name: "HoursBar.png")
+
                 newBar.frame = CGRect(
                     x: CGFloat(dayFrame!.origin.x + 12),
                     y: CGFloat(dayFrame!.origin.y + 50),

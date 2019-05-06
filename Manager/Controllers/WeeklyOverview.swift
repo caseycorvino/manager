@@ -19,6 +19,7 @@ class WeeklyOverview: UIViewController {
     @IBOutlet weak var Day5: UILabel!
     @IBOutlet weak var Day6: UILabel!
     @IBOutlet weak var Day7: UILabel!
+    @IBOutlet weak var WeeklyReportBtn: UIButton!
     
     let taskServices = TaskServices()
     let utils = Utils()
@@ -32,14 +33,6 @@ class WeeklyOverview: UIViewController {
         setCircles(tasks: getTasksCount())
     }
     
-    // Create circle icon
-    func createTaskCircle() -> UIImageView {
-        let imageName = "TaskCirclex4.png"
-        let image = UIImage(named: imageName)
-        let TaskCircle = UIImageView(image: image!)
-        
-        return TaskCircle
-    }
     
     // Set correct number of task circles per day
     func setCircles(tasks: Array<Int>) {
@@ -49,7 +42,7 @@ class WeeklyOverview: UIViewController {
             if tasks[i] > 0 {
                 for j in 1...tasks[i] {
                     let dayFrame = daysText[i]?.frame
-                    let newCircle = createTaskCircle()
+                    let newCircle = utils.createImage(Name: "TaskCirclex4.png")
                     newCircle.frame = CGRect(
                         x: dayFrame!.origin.x + CGFloat(10),
                         y: dayFrame!.origin.y + CGFloat(j*40) + 20,

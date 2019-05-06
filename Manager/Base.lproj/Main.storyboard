@@ -139,6 +139,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-nL-8fl">
+                                <rect key="frame" x="135" y="753" width="145" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Weekly Report">
+                                    <color key="titleColor" red="0.54729688170000002" green="0.25138008589999999" blue="0.23920083049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uOa-dg-4lK"/>
@@ -152,11 +160,12 @@
                         <outlet property="Day6" destination="lSf-eY-Rxn" id="Ql5-M6-lP4"/>
                         <outlet property="Day7" destination="xce-cd-kVS" id="lED-Zd-dNJ"/>
                         <outlet property="MonthLabel" destination="Qlf-49-Jmx" id="DRG-xB-6yL"/>
+                        <outlet property="WeeklyReportBtn" destination="6D3-nL-8fl" id="2tb-zl-8T4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3c-Ge-Y9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1407" y="21"/>
+            <point key="canvasLocation" x="1405.7971014492755" y="20.758928571428569"/>
         </scene>
         <!--Hours Weekly Overview-->
         <scene sceneID="QvQ-Ng-I3d">
@@ -288,6 +297,7 @@
         <image name="WhiteLine" width="414" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NwE-8H-8f1"/>
         <segue reference="Oet-mm-Xp2"/>
     </inferredMetricsTieBreakers>
 </document>

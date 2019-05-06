@@ -43,5 +43,13 @@ class Utils: UIViewController {
         let day1 = calendar.date(byAdding: .day, value: days * -1, to: Date())
         return String(calendar.component(.day, from: day1!))
     }
+    
+    func createImage(Name: String) -> UIImageView {
+        let imageName = Name
+        let image = UIImage(named: imageName)
+        let imageObj = UIImageView(image: image!)
+        
+        return imageObj
+    }
 
 }
