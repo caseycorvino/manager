@@ -1,5 +1,5 @@
 //
-//  Day.swift
+//  StartDay.swift
 //  Manager
 //
 //  Created by Alex Li on 5/5/19.
@@ -8,9 +8,8 @@
 
 import UIKit
 
-class Day: UIViewController {
+class StartDay: UIViewController {
 
-    let taskServices = TaskServices()
     override func viewDidLoad() {
         super.viewDidLoad()
         let currentDate = NSDate()
@@ -34,28 +33,50 @@ class Day: UIViewController {
         Month.text = dateFormatter.string(from: currentDate as Date)
         dateFormatter.dateFormat = "MMMM dd, yyyy"
         Date.text = dateFormatter.string(from: currentDate as Date)
-        dateFormatter.dateFormat = "h:mm a"
-        Time.text = dateFormatter.string(from: timeStarted as Date)
-        
         if(taskServices.GetTask(id: 0) != nil){
-            OngoingTask1.text = taskServices.GetTask(id: 0)!.title
-        }else{ OngoingTask1.text = ""}
+            OngoingTasks1.text = taskServices.GetTask(id: 0)!.title
+        }else{ OngoingTasks1.text = ""}
         if(taskServices.GetTask(id: 1) != nil){
-            OngoingTask2.text = taskServices.GetTask(id: 1)!.title
-        }else{ OngoingTask2.text = ""}
+            OngoingTasks2.text = taskServices.GetTask(id: 1)!.title
+        }else{ OngoingTasks2.text = ""}
         let newT = taskServices.LoadTasks(start: currentDate as Date, end: currentDate.addingTimeInterval(86400) as Date)
         if(newT.count >= 1){
-            NewTask1.text = newT[0].title
+            NewTasks1.text = newT[0].title
             if(newT.count >= 2){
-                NewTask2.text = newT[1].title
+                NewTasks2.text = newT[1].title
             }else{
-                NewTask2.text = ""
+                NewTasks2.text = ""
             }
         }else{
-            NewTask1.text = ""
+            NewTasks1.text = ""
         }
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is Day
+        {
+            let vc = segue.destination as? Day
+            vc?.timeStarted = NSDate()
+        }
+    }
+    
+    
+    @IBOutlet weak var OngoingTasks1: UILabel!
+    @IBOutlet weak var OngoingTasks2: UILabel!
+    @IBOutlet weak var NewTasks1: UILabel!
+    @IBOutlet weak var NewTasks2: UILabel!
+    @IBOutlet weak var Date: UILabel!
+    @IBOutlet weak var Month: UILabel!
+    @IBOutlet weak var Dm3: UILabel!
+    @IBOutlet weak var Dm2: UILabel!
+    @IBOutlet weak var Dm1: UILabel!
+    @IBOutlet weak var D0: UILabel!
+    @IBOutlet weak var D1: UILabel!
+    @IBOutlet weak var D2: UILabel!
+    @IBOutlet weak var D3: UILabel!
+    
     @IBAction func showPopUp(_ sender: Any) {
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newTaskID") as! NewTask
         
@@ -65,27 +86,6 @@ class Day: UIViewController {
         popOverVC.didMove(toParent: self)
     }
     
-    @IBAction func endDay(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    @IBOutlet weak var OngoingTask1: UILabel!
-    @IBOutlet weak var OngoingTask2: UILabel!
-    @IBOutlet weak var NewTask1: UILabel!
-    @IBOutlet weak var NewTask2: UILabel!
-    
-    var timeStarted: NSDate!
-    @IBOutlet weak var Month: UILabel!
-    @IBOutlet weak var Dm3: UILabel!
-    @IBOutlet weak var Dm2: UILabel!
-    @IBOutlet weak var Dm1: UILabel!
-    @IBOutlet weak var D0: UILabel!
-    @IBOutlet weak var D1: UILabel!
-    @IBOutlet weak var D2: UILabel!
-    @IBOutlet weak var D3: UILabel!
-    @IBOutlet weak var Date: UILabel!
-    @IBOutlet weak var Time: UILabel!
     /*
     // MARK: - Navigation
 

@@ -9,9 +9,7 @@
 import UIKit
 
 class NewTask: UIViewController {
-    
-    let taskServices = TaskServices()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
