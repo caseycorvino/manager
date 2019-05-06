@@ -28,11 +28,11 @@ class WeeklyOverview: UIViewController {
         super.viewDidLoad()
         setDates()
         
-        let testTasks = [2,1,0,6,3,2,4]
-        setTasks(tasks: testTasks)
+//        let testTasks = [2,1,0,6,3,2,4]
+        setCircles(tasks: getTasksCount())
     }
     
-    // Create circle icon per task
+    // Create circle icon
     func createTaskCircle() -> UIImageView {
         let imageName = "TaskCirclex4.png"
         let image = UIImage(named: imageName)
@@ -42,14 +42,12 @@ class WeeklyOverview: UIViewController {
     }
     
     // Set correct number of task circles per day
-    func setTasks(tasks: Array<Int>) {
-//        let tasks = getTasksCount()
+    func setCircles(tasks: Array<Int>) {
         let daysText = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
         
         for i in 0...tasks.count-1 {
             if tasks[i] > 0 {
                 for j in 1...tasks[i] {
-                    print("Creating new task circle")
                     let dayFrame = daysText[i]?.frame
                     let newCircle = createTaskCircle()
                     newCircle.frame = CGRect(
@@ -58,7 +56,6 @@ class WeeklyOverview: UIViewController {
                         width: 20,
                         height: 20)
                     view.addSubview(newCircle)
-                    print(newCircle.frame)
                 }
             }
         }
@@ -66,7 +63,7 @@ class WeeklyOverview: UIViewController {
     
     // Return array of task counts for the past week, in reverse days order
     func getTasksCount() -> Array<Int> {
-        var tasksCount:[Int] = [0,0,0,0,0,0,0];
+        var tasksCount = [0,0,0,0,0,0,0];
         
         for i in 0...6 {
             var times = utils.getDateStartEnd(date: utils.getDateAgo(days: i))
