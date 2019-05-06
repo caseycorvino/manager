@@ -126,11 +126,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-nL-8fl">
-                                <rect key="frame" x="135" y="753" width="145" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-nL-8fl">
+                                <rect key="frame" x="144" y="753" width="150" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="safeArea" id="rOG-p6-nUo"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Weekly Report">
+                                <state key="normal" title="Open Report">
                                     <color key="titleColor" red="0.54729688170000002" green="0.25138008589999999" blue="0.23920083049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -606,7 +607,8 @@
         <image name="WhiteLine" width="414" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bzy-mI-H0f"/>
+        <segue reference="NwE-8H-8f1"/>
+        <segue reference="v6E-Sb-FaI"/>
         <segue reference="Oet-mm-Xp2"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -24,6 +24,9 @@ class WeeklyOverview: UIViewController {
     let taskServices = TaskServices()
     let utils = Utils()
     
+    var reportActive = false
+    var textFieldViews: [UILabel] = []
+    var overlay = UIImageView(image: UIImage(named: "GrayOverlay.png"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +39,47 @@ class WeeklyOverview: UIViewController {
     
     
     @IBAction func viewWeeklyReport(_ sender: Any) {
-        print("Hello")
+
+        if (reportActive == false) {
+            overlay.frame = CGRect(x: 0, y: 200, width: 500, height: 400)
+            overlay.alpha = 1
         
-        let overlay = utils.createImage(Name: "GrayOverlay.png")
-        
-        overlay.frame = CGRect(x: 0, y: 200, width: 500, height: 400)
-        view.addSubview(overlay)
-        
+            
+            
+            
+            view.addSubview(overlay)
+
+            let reportLabels = ["Total tasks completed this week: ",
+                                "Greatest number of tasks in one day: ",
+                                "Average number of tasks completed: ",
+                                "Number of days worked this week: "]
+//            let reportData = [10, 4, 9, 4]
+            let reportData = [getTotalTasks(tasks: getTasksCount()),
+                getHighestTasks(tasks: getTasksCount()),
+                getAvg(total: getTotalTasks(tasks: getTasksCount())),
+                getDaysWorked(tasks: getTasksCount())
+            ]
+            
+            for i in 0...3 {
+                let textField =  UILabel(frame: CGRect(x: 20, y: 220 + i*35, width: 400, height: 40))
+                textField.text = reportLabels[i] + String(reportData[i])
+                textField.textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+                
+                textFieldViews.append(textField)
+                view.addSubview(textField)
+            }
+            WeeklyReportBtn.setTitle("Close Report", for: .normal)
+            reportActive = true
+        } else {
+            print("hide overlay")
+            
+            for t in textFieldViews {
+                t.removeFromSuperview()
+            }
+            overlay.alpha = 0
+            WeeklyReportBtn.setTitle("Open Report", for: .normal)
+            reportActive = false
+        }
     }
     // Set correct number of task circles per day
     func setCircles(tasks: Array<Int>) {
