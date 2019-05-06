@@ -39,7 +39,7 @@ class TaskServices {
     func GetTask(id: Int) -> Task? {
         let tasks = LoadTasks();
         for task in tasks {
-            if Int(task.id) == id {
+            if task.id == id {
                 return task;
             }
         }
@@ -121,7 +121,7 @@ class TaskServices {
         let tasks = LoadTasks();
         let lastTask = tasks.last;
         if(lastTask != nil){
-            return Int(truncating: lastTask!.id) + 1;
+            return lastTask!.id + 1;
         }else{
             return 0;
         }

@@ -8,14 +8,15 @@
 
 import UIKit
 
+let taskServices = TaskServices();
+
 class ViewController: UIViewController {
     
     //No need to import, just declare the singleton like this :-)
-    let taskServices = TaskServices();
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
 
