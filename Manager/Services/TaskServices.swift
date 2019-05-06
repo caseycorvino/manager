@@ -83,6 +83,30 @@ class TaskServices {
         }
         return [];
     }
+    func setStartTime(){
+        var calendar = NSCalendar.current;
+        calendar.timeZone = NSTimeZone.local;
+        let start = calendar.startOfDay(for: Date())
+        let end = Date(timeInterval: 86400, since: start);
+        let tasks = LoadTasks(start: start, end: end)
+        for task in tasks{
+            task.start = Date();
+            _ = UpdateTask(task: task);
+        }
+    }
+    func setEndTime(){
+        var calendar = NSCalendar.current;
+        calendar.timeZone = NSTimeZone.local;
+        let start = calendar.startOfDay(for: Date())
+        let end = Date(timeInterval: 86400, since: start);
+        let tasks = LoadTasks(start: start, end: end)
+        for task in tasks{
+            task.end = Date();
+            _ = UpdateTask(task: task);
+        }
+    }
+
+    
     
     /*
      Get Tasks in between dates.
