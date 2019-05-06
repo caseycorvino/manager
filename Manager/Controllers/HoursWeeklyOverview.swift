@@ -72,6 +72,7 @@ class HoursWeeklyOverview: UIViewController {
     }
     
     func setDates() {
+
         let now = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
@@ -80,15 +81,23 @@ class HoursWeeklyOverview: UIViewController {
         
         let calendar = Calendar.current
         
-        Day1.text = utils.getDateAgoString(days:6)
-        Day2.text = utils.getDateAgoString(days:5)
-        Day3.text = utils.getDateAgoString(days:4)
-        Day4.text = utils.getDateAgoString(days:3)
-        Day5.text = utils.getDateAgoString(days:2)
-        Day6.text = utils.getDateAgoString(days:1)
+        let day1 = calendar.date(byAdding: .day, value: -6, to: Date())
+        let day2 = calendar.date(byAdding: .day, value: -5, to: Date())
+        let day3 = calendar.date(byAdding: .day, value: -4, to: Date())
+        let day4 = calendar.date(byAdding: .day, value: -3, to: Date())
+        let day5 = calendar.date(byAdding: .day, value: -2, to: Date())
+        let day6 = calendar.date(byAdding: .day, value: -1, to: Date())
+        
+        Day1.text = String(calendar.component(.day, from: day1!))
+        Day2.text = String(calendar.component(.day, from: day2!))
+        Day3.text = String(calendar.component(.day, from: day3!))
+        Day4.text = String(calendar.component(.day, from: day4!))
+        Day5.text = String(calendar.component(.day, from: day5!))
+        Day6.text = String(calendar.component(.day, from: day6!))
         Day7.text = String(calendar.component(.day, from: now))
         
-        Day7.textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+        Day7.textColor = UIColor(red: 254, green: 221, blue: 101, alpha: 1.0)
+        // Do any additional setup after loading the view.
     }
     
 

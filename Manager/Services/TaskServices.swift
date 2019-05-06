@@ -39,7 +39,7 @@ class TaskServices {
     func GetTask(id: Int) -> Task? {
         let tasks = LoadTasks();
         for task in tasks {
-            if task.id == id {
+            if Int(truncating: task.id) == id {
                 return task;
             }
         }
@@ -65,8 +65,9 @@ class TaskServices {
      */
     func SaveTasks(arrayToSave: [Task]){
         do{
+            NSKeyedArchiver.setClassName("Task", for: Task.self);
             let tasksData = try NSKeyedArchiver.archivedData(withRootObject: arrayToSave, requiringSecureCoding: false);
-            UserDefaults.standard.set(tasksData, forKey: "tasks");
+            UserDefaults.init(suiteName: "group.com.caseycorvino.manager")?.set(tasksData, forKey: "tasks");
         }catch{
             print("task save error");
         }
@@ -76,11 +77,36 @@ class TaskServices {
      Load tasks from user defaults.
      */
     func LoadTasks()->[Task]{
-        if let tasksData = UserDefaults.standard.object(forKey: "tasks") as? NSData {
+        if let tasksData = UserDefaults.init(suiteName: "group.com.caseycorvino.manager")?.object(forKey: "tasks") as? NSData {
+            NSKeyedUnarchiver.setClass(Task.self, forClassName: "Task");
             return NSKeyedUnarchiver.unarchiveObject(with: tasksData as Data) as! [Task];
         }
         return [];
     }
+    func setStartTime(){
+        var calendar = NSCalendar.current;
+        calendar.timeZone = NSTimeZone.local;
+        let start = calendar.startOfDay(for: Date())
+        let end = Date(timeInterval: 86400, since: start);
+        let tasks = LoadTasks(start: start, end: end)
+        for task in tasks{
+            task.start = Date();
+            _ = UpdateTask(task: task);
+        }
+    }
+    func setEndTime(){
+        var calendar = NSCalendar.current;
+        calendar.timeZone = NSTimeZone.local;
+        let start = calendar.startOfDay(for: Date())
+        let end = Date(timeInterval: 86400, since: start);
+        let tasks = LoadTasks(start: start, end: end)
+        for task in tasks{
+            task.end = Date();
+            _ = UpdateTask(task: task);
+        }
+    }
+
+    
     
     /*
      Get Tasks in between dates.
@@ -89,7 +115,7 @@ class TaskServices {
         var temp:[Task] = [];
         let tasks = LoadTasks();
         for task in tasks{
-            if((start ... end).contains(task.day ?? Date()) ){
+            if((start ... end).contains(task.day!) ){
                 temp.append(task);
             }
         }
@@ -119,7 +145,7 @@ class TaskServices {
         let tasks = LoadTasks();
         let lastTask = tasks.last;
         if(lastTask != nil){
-            return lastTask!.id + 1;
+            return Int(truncating: lastTask!.id) + 1;
         }else{
             return 0;
         }
