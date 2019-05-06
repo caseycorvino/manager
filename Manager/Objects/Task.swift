@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Task:NSObject, NSCoding {
+@objc(Task)
+open class Task:NSObject, NSCoding {
     
     //iD
     var id: NSNumber;
@@ -47,7 +48,7 @@ class Task:NSObject, NSCoding {
     /*
      Decoding when loaded from User Defaults
      */
-    required init(coder decoder: NSCoder) {
+    required public init(coder decoder: NSCoder) {
         self.id = decoder.decodeObject(forKey: "id") as! NSNumber;
         self.title = decoder.decodeObject(forKey: "title") as! String;
         self.estimation = decoder.decodeObject(forKey: "estimation") as! String;
@@ -58,7 +59,7 @@ class Task:NSObject, NSCoding {
     /*
      Encoding when saving to User Defaults
      */
-    func encode(with aCoder: NSCoder) {
+    public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id");
         aCoder.encode(self.title, forKey: "title");
         aCoder.encode(self.estimation, forKey: "estimation");

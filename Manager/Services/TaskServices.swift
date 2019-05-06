@@ -65,8 +65,9 @@ class TaskServices {
      */
     func SaveTasks(arrayToSave: [Task]){
         do{
+            NSKeyedArchiver.setClassName("Task", for: Task.self);
             let tasksData = try NSKeyedArchiver.archivedData(withRootObject: arrayToSave, requiringSecureCoding: false);
-            UserDefaults.standard.set(tasksData, forKey: "tasks");
+            UserDefaults.init(suiteName: "group.com.caseycorvino.manager")?.set(tasksData, forKey: "tasks");
         }catch{
             print("task save error");
         }
@@ -76,7 +77,8 @@ class TaskServices {
      Load tasks from user defaults.
      */
     func LoadTasks()->[Task]{
-        if let tasksData = UserDefaults.standard.object(forKey: "tasks") as? NSData {
+        if let tasksData = UserDefaults.init(suiteName: "group.com.caseycorvino.manager")?.object(forKey: "tasks") as? NSData {
+            NSKeyedUnarchiver.setClass(Task.self, forClassName: "Task");
             return NSKeyedUnarchiver.unarchiveObject(with: tasksData as Data) as! [Task];
         }
         return [];
@@ -89,7 +91,7 @@ class TaskServices {
         var temp:[Task] = [];
         let tasks = LoadTasks();
         for task in tasks{
-            if((start ... end).contains(task.day ?? Date()) ){
+            if((start ... end).contains(task.day!) ){
                 temp.append(task);
             }
         }
