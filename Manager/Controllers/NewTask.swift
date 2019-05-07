@@ -25,26 +25,26 @@ class NewTask: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         performSegue(withIdentifier: "unwindSegue", sender: self)
     }
-//    @IBAction func closePopUp0(_ sender: Any) {
-//        if(taskName.text != ""){
+    @IBAction func closePopUp0(_ sender: Any) {
+        if(taskName.text != ""){
 //            taskServices.NewTask(title: taskName.text as! String, estimation: String(1), day: Date())
-//            performSegue(withIdentifier: "unwindSegue", sender: self)
-//        }
-//    }
-//
-//    @IBAction func closePopUp1(_ sender: Any) {
-//        if(taskName.text != ""){
+            performSegue(withIdentifier: "unwindSegue", sender: self)
+        }
+    }
+
+    @IBAction func closePopUp1(_ sender: Any) {
+        if(taskName.text != ""){
 //            taskServices.NewTask(title: taskName.text as! String, estimation: String(3), day: Date())
-//            performSegue(withIdentifier: "unwindSegue", sender: self)
-//        }
-//    }
-//
-//    @IBAction func closePopUp2(_ sender: Any) {
-//        if(taskName.text != nil){
+            performSegue(withIdentifier: "unwindSegue", sender: self)
+        }
+    }
+
+    @IBAction func closePopUp2(_ sender: Any) {
+        if(taskName.text != nil){
 //            taskServices.NewTask(title: taskName.text as! String, estimation: String(4), day: Date())
-//            performSegue(withIdentifier: "unwindSegue", sender: self)
-//        }
-//    }
+            performSegue(withIdentifier: "unwindSegue", sender: self)
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {

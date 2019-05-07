@@ -26,9 +26,9 @@ class TaskServices {
     /*
      Create and save a new task. Don't use let task = Task(...) to make tasks. Use this:
      */
-    func NewTask(title: String, estimation: String, day: Date) -> Task {
+    func NewTask(title: String, day: Date) -> Task {
         let id = getNextId();
-        let task = Task.init(title: title, estimation: estimation, day: day, id: id);
+        let task = Task.init(title: title, day: day, id: id);
         var tasks = LoadTasks();
         tasks.append(task);
         SaveTasks(arrayToSave: tasks);
