@@ -30,10 +30,13 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     let utils = Utils()
     let currentDate = Date()
     
+    let unstartedBtn = UIImage(named: "NotStartedBtn.png")
+    let startedBtn = UIImage(named: "StartedBtn.png")
+    let finishedBtn = UIImage(named: "FinishedBtn.png")
     
-    
+    private var taskID: [NSNumber] = []
     private var taskTitles: [String] = []
-    private var taskState: [String] = []
+    private var taskState: [Int] = [] // Unstarted: 0, Started: 1, Finished: 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +59,24 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
     }
     
+    // Pull tasks from server onto interface
     func populateTable(date: Date) {
         let times = utils.getDateStartEnd(date: date)
         
         let tasks = taskServices.LoadTasks(start: times[0], end: times[1])
         
         for t in tasks {
+            taskID.append(t.id)
             taskTitles.append(t.title)
+            
+            if (t.start == nil) { // Unstarted
+                taskState.append(0)
+            }
+            else if (t.end == nil) { // Started but not finished
+                taskState.append(1)
+            } else { // Finished
+                taskState.append(2)
+            }
         }
     }
     
@@ -77,26 +91,33 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath)
         -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")! //1.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
         
-        let text = taskTitles[indexPath.row] //2.
-        let taskBtn = UIImage(named: "NotStartedBtn.png")
-    
+        let text = taskTitles[indexPath.row]
+            
+        var taskBtn = unstartedBtn
+            
+        if (taskState[indexPath.row] == 1) {
+            taskBtn = startedBtn
+        }
+        if (taskState[indexPath.row] == 2) {
+            taskBtn = finishedBtn
+        }
+            
+            
+        // Table cells setup
         cell.isUserInteractionEnabled = true
         cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
             
-        cell.textLabel?.text = text //3.
-        
+        cell.textLabel?.text = text
         cell.imageView?.image = taskBtn
         cell.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.0)
-            
+        
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.0)
-//        cell.selectedBackgroundView = bgColorView
+        cell.selectedBackgroundView = bgColorView
         
-            
-        
-        return cell //4.
+        return cell
     }
     
     // Action when a task is tapped
@@ -104,40 +125,44 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         print("image tapped")
         let activeCell = recognizer.view as? UITableViewCell
         
-        activeCell?.imageView!.image = UIImage(named: "StartedBtn.png")
+        let tapLocation = recognizer.location(in: self.tableView)
+        if let tapIndexPath = self.tableView.indexPathForRow(at: tapLocation) {
+            
+            var activeTask = taskServices.GetTask(id: Int(truncating: taskID[tapIndexPath.row]))
+            // Update state of task
+            if (taskState[tapIndexPath.row] == 0) { // Start a task
+                activeCell?.imageView!.image = startedBtn
+                activeTask?.start = Date()
+            }
+            else if (taskState[tapIndexPath.row] == 1) { // Finish a task
+                activeCell?.imageView!.image = finishedBtn
+                activeTask?.end = Date()
+            }
+            
+            taskServices.UpdateTask(task: activeTask!)
+            taskState[tapIndexPath.row] += 1
+        }
+//        activeCell?.imageView!.image = UIImage(named: "StartedBtn.png")
     }
     
 
+    // New task created
     @IBAction func sendTaskBtn(_ sender: Any) {
         AddNewTaskField.resignFirstResponder() // Dismiss keyboard
         
-        taskServices.UpdateTask(task: taskServices.NewTask(title: AddNewTaskField.text!, day: currentDate))
+        let newTask = taskServices.UpdateTask(task: taskServices.NewTask(title: AddNewTaskField.text!, day: currentDate))
         
         // Dynamically add data to table
+        taskID.append(newTask.id)
         taskTitles.append(AddNewTaskField.text!)
+        taskState.append(0)
+        
+        // Refresh table to add new task
         self.tableView.reloadData()
    
+        // Clear textfield
         AddNewTaskField.text = ""
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("tapped!!!!")
-//    }
-//
-//    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
-//        let translation = recognizer.translation(in: self.view)
-//        if let view = recognizer.view {
-//            view.center = CGPoint(x:view.center.x + translation.x,
-//                                  y:view.center.y + translation.y)
-//        }
-//        recognizer.setTranslation(CGPoint.zero, in: self.view)
-//    }
-    
-    
-//    self.tableView.addGestureRecognizer(tap)
-    
-    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("??")
-    }
 }
 
