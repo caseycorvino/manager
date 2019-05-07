@@ -22,13 +22,9 @@ open class Task:NSObject, NSCoding {
     
     var day: Date?;
     
-    //Estimation property.
-    var estimation: String;
-    
     // Contructor with 2 parameters.
-    init (title: String, estimation: String, day: Date, id:Int)  {
+    init (title: String, day: Date, id:Int)  {
         self.title = title;
-        self.estimation = estimation;
         self.day = day;
         self.id = id as NSNumber;
     }
@@ -51,7 +47,6 @@ open class Task:NSObject, NSCoding {
     required public init(coder decoder: NSCoder) {
         self.id = decoder.decodeObject(forKey: "id") as! NSNumber;
         self.title = decoder.decodeObject(forKey: "title") as! String;
-        self.estimation = decoder.decodeObject(forKey: "estimation") as! String;
         self.start = decoder.decodeObject(forKey: "start") as? Date;
         self.end = decoder.decodeObject(forKey: "end") as? Date;
         self.day = decoder.decodeObject(forKey: "day") as? Date;
@@ -62,7 +57,6 @@ open class Task:NSObject, NSCoding {
     public func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id");
         aCoder.encode(self.title, forKey: "title");
-        aCoder.encode(self.estimation, forKey: "estimation");
         aCoder.encode(self.start, forKey: "start");
         aCoder.encode(self.end, forKey: "end");
         aCoder.encode(self.day, forKey: "day");

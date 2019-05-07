@@ -11,7 +11,7 @@ import UIKit
 class WeeklyOverview: UIViewController {
 
     
-    @IBOutlet weak var MonthLabel: UITextField!
+    @IBOutlet weak var MonthLabel: UILabel!
     @IBOutlet weak var Day1: UILabel!
     @IBOutlet weak var Day2: UILabel!
     @IBOutlet weak var Day3: UILabel!
@@ -30,7 +30,9 @@ class WeeklyOverview: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDates()
+        
+        let daysArray = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
+        utils.setDates(today: 6, month: MonthLabel, days: daysArray as! Array<UILabel>)
         
 //        let testTasks = [2,1,0,6,3,2,4]
 //        setCircles(tasks: testTasks)
@@ -142,27 +144,6 @@ class WeeklyOverview: UIViewController {
         }
         return count
     }
-    
-    func setDates() {
-        let now = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "LLLL"
-        let nameOfMonth = dateFormatter.string(from: now)
-        MonthLabel.text = nameOfMonth
-        
-        let calendar = Calendar.current
-        
-        Day1.text = utils.getDateAgoString(days:6)
-        Day2.text = utils.getDateAgoString(days:5)
-        Day3.text = utils.getDateAgoString(days:4)
-        Day4.text = utils.getDateAgoString(days:3)
-        Day5.text = utils.getDateAgoString(days:2)
-        Day6.text = utils.getDateAgoString(days:1)
-        Day7.text = String(calendar.component(.day, from: now))
-        
-        Day7.textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
-    }
-    
 
     
 }

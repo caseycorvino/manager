@@ -27,32 +27,32 @@ class NewTask: UIViewController {
     }
     @IBAction func closePopUp0(_ sender: Any) {
         if(taskName.text != ""){
-            taskServices.NewTask(title: taskName.text as! String, estimation: String(1), day: Date())
+//            taskServices.NewTask(title: taskName.text as! String, estimation: String(1), day: Date())
             performSegue(withIdentifier: "unwindSegue", sender: self)
         }
     }
-    
+
     @IBAction func closePopUp1(_ sender: Any) {
         if(taskName.text != ""){
-            taskServices.NewTask(title: taskName.text as! String, estimation: String(3), day: Date())
+//            taskServices.NewTask(title: taskName.text as! String, estimation: String(3), day: Date())
             performSegue(withIdentifier: "unwindSegue", sender: self)
         }
     }
-    
+
     @IBAction func closePopUp2(_ sender: Any) {
         if(taskName.text != nil){
-            taskServices.NewTask(title: taskName.text as! String, estimation: String(4), day: Date())
+//            taskServices.NewTask(title: taskName.text as! String, estimation: String(4), day: Date())
             performSegue(withIdentifier: "unwindSegue", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is StartDay
-         {
-         let vc = segue.destination as? StartDay
-         vc?.refresh()
-         }
+//        if segue.destination is StartDay
+//         {
+////         let vc = segue.destination as? StartDay
+////         vc?.refresh()
+//         }
     }
     
     /*
