@@ -10,15 +10,9 @@ import UIKit
 
 class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
  {
-    
+    var dateModelPicker: DateModelPicker!
+    @IBOutlet weak var DayPicker: UIPickerView!
     @IBOutlet weak var MonthLabel: UILabel!
-    @IBOutlet weak var Day1: UILabel!
-    @IBOutlet weak var Day2: UILabel!
-    @IBOutlet weak var Day3: UILabel!
-    @IBOutlet weak var Day4: UILabel!
-    @IBOutlet weak var Day5: UILabel!
-    @IBOutlet weak var Day6: UILabel!
-    @IBOutlet weak var Day7: UILabel!
     
     @IBOutlet weak var AddNewTaskField: UITextField!
     @IBOutlet weak var textSendBtn: UIButton!
@@ -35,9 +29,12 @@ class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateModelPicker = DateModelPicker()
+        
         // Set footer calendar
-        let daysArray = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
-        utils.setDates(today: 3, month: MonthLabel, days: daysArray as! Array<UILabel>)
+        DayPicker.delegate = dateModelPicker
+        DayPicker.dataSource = dateModelPicker
+        
         
         // Table setup
         populateTable(date: currentDate)
