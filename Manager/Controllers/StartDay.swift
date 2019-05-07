@@ -17,7 +17,8 @@ class StartDay: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        refresh()
+        refresh();
+        
         // Do any additional setup after loading the view.
     }
     func refresh(){

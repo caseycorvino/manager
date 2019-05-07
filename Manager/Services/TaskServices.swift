@@ -144,6 +144,32 @@ class TaskServices {
         return totalTime;
     }
     
+    /*
+     This creates hardcoded tasks for the last 5 days.
+     */
+    func generateTasks(){
+        SaveTasks(arrayToSave: []);
+        let now = Date();
+        var calendar = NSCalendar.current;
+        calendar.timeZone = NSTimeZone.local;
+        let start = calendar.startOfDay(for: now)
+        print(start);
+        for i in 1...5{
+            let rand = arc4random_uniform(6) + 1;
+            for _ in 1...rand{
+                let t = NewTask(title: "Demo Task", estimation: "2", day: Date.init(timeInterval: -86400 * Double(i), since: start));
+                t.start = Date.init(timeInterval: -86400 * Double(i) + 28000, since: start);
+                t.end = Date.init(timeInterval: -86400 * Double(i) + 58000, since: start);
+                _ = UpdateTask(task: t);
+            }
+        }
+        let tasks = LoadTasks();
+        for t in tasks{
+            print(t.start,t.end);
+        }
+    }
+    
+    
     /* ======== helper functions ======= */
     /*
      Get next id

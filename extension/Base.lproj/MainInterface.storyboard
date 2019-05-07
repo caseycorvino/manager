@@ -37,7 +37,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Tasks!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-sd-dOp">
-                                <rect key="frame" x="113" y="47" width="149.5" height="29"/>
+                                <rect key="frame" x="113" y="24" width="149.5" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="149.5" id="4i7-0f-RQ2"/>
                                     <constraint firstAttribute="height" constant="29" id="oZt-Cg-FsB"/>
@@ -46,13 +46,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czl-VA-Ie9">
+                                <rect key="frame" x="137.5" y="61" width="100.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="tAP-p5-Ru9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.70513237847222221" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="czl-VA-Ie9" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="B69-Uj-kuM"/>
                             <constraint firstItem="Mkr-sd-dOp" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="EdE-L7-aCq"/>
-                            <constraint firstItem="Mkr-sd-dOp" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="47" id="M4M-Sr-NLh"/>
+                            <constraint firstItem="Mkr-sd-dOp" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="24" id="M4M-Sr-NLh"/>
                             <constraint firstItem="jT7-4q-baC" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="MAa-Eq-4aZ"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="jT7-4q-baC" secondAttribute="trailing" id="RTn-SQ-Qg3"/>
                             <constraint firstItem="jT7-4q-baC" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Vlp-r4-JbQ"/>
+                            <constraint firstItem="czl-VA-Ie9" firstAttribute="top" secondItem="Mkr-sd-dOp" secondAttribute="bottom" constant="8" id="bHW-Fx-j7i"/>
                             <constraint firstItem="jT7-4q-baC" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="110" id="mdc-I4-x1Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
@@ -61,6 +72,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="300"/>
                     <connections>
+                        <outlet property="estimationLabel" destination="czl-VA-Ie9" id="raI-ge-jEJ"/>
                         <outlet property="tableView" destination="jT7-4q-baC" id="yr0-ej-2tE"/>
                     </connections>
                 </viewController>
