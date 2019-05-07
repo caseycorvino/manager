@@ -12,7 +12,7 @@ import NotificationCenter
 class TodayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NCWidgetProviding {
     let taskServices = TaskServices();
 
-    @IBOutlet weak var estimationLabel: UILabel!
+
     var tasks:[Task] = [];
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -29,12 +29,12 @@ class TodayViewController: UIViewController, UITableViewDataSource, UITableViewD
         tasks = taskServices.LoadTasks(start: startDay, end: Date(timeInterval: 86400, since: startDay));
         print(tasks.count);
         var est:Int = 0;
-        for t in tasks{
-            if let e = Int(t.estimation){
-                est += e;
-            }
-        }
-        estimationLabel.text = "Estimated Time: " + String(est) + " hours";
+//        for t in tasks{
+//            if let e = Int(t.estimation){
+//                est += e;
+//            }
+//        }
+//        estimationLabel.text = "Estimated Time: " + String(est) + " hours";
     }
     
     @available(iOS 10.0, *)
