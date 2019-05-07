@@ -157,7 +157,7 @@ class TaskServices {
         for i in 1...5{
             let rand = arc4random_uniform(6) + 1;
             for _ in 1...rand{
-                let t = NewTask(title: "Demo Task", estimation: "2", day: Date.init(timeInterval: -86400 * Double(i), since: start));
+                let t = NewTask(title: "Demo Task", day: Date.init(timeInterval: -86400 * Double(i), since: start));
                 t.start = Date.init(timeInterval: -86400 * Double(i) + 28000, since: start);
                 t.end = Date.init(timeInterval: -86400 * Double(i) + 58000, since: start);
                 _ = UpdateTask(task: t);

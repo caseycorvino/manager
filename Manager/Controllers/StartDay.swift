@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
+class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate
  {
     
     @IBOutlet weak var MonthLabel: UILabel!
@@ -30,7 +30,10 @@ class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
     let utils = Utils()
     let currentDate = Date()
     
-    private var data: [String] = []
+    
+    
+    private var taskTitles: [String] = []
+    private var taskState: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,7 @@ class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
         // Table setup
         populateTable(date: currentDate)
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.0)
         
         // Add new task field setup
         self.AddNewTaskField.delegate = self
@@ -49,6 +53,7 @@ class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
         // Testing
         print("printing initial tasks count")
         print(taskServices.LoadTasks().count)
+        
     }
     
     func populateTable(date: Date) {
@@ -57,7 +62,7 @@ class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
         let tasks = taskServices.LoadTasks(start: times[0], end: times[1])
         
         for t in tasks {
-            data.append(t.title)
+            taskTitles.append(t.title)
         }
     }
     
@@ -66,7 +71,7 @@ class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return taskTitles.count
     }
     func tableView(
         _ tableView: UITableView,
@@ -74,26 +79,65 @@ class StartDay: UIViewController, UITableViewDataSource, UITextFieldDelegate
         -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")! //1.
         
-        let text = data[indexPath.row] //2.
-        
-       
+        let text = taskTitles[indexPath.row] //2.
+        let taskBtn = UIImage(named: "NotStartedBtn.png")
+    
+        cell.isUserInteractionEnabled = true
+        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
+            
         cell.textLabel?.text = text //3.
+        
+        cell.imageView?.image = taskBtn
+        cell.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.0)
+            
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.0)
+//        cell.selectedBackgroundView = bgColorView
+        
+            
         
         return cell //4.
     }
     
+    // Action when a task is tapped
+    @objc private func imageTapped(_ recognizer: UITapGestureRecognizer) {
+        print("image tapped")
+        let activeCell = recognizer.view as? UITableViewCell
+        
+        activeCell?.imageView!.image = UIImage(named: "StartedBtn.png")
+    }
     
+
     @IBAction func sendTaskBtn(_ sender: Any) {
         AddNewTaskField.resignFirstResponder() // Dismiss keyboard
         
         taskServices.UpdateTask(task: taskServices.NewTask(title: AddNewTaskField.text!, day: currentDate))
         
         // Dynamically add data to table
-        data.append(AddNewTaskField.text!)
+        taskTitles.append(AddNewTaskField.text!)
         self.tableView.reloadData()
    
         AddNewTaskField.text = ""
     }
-
+    
+//    func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("tapped!!!!")
+//    }
+//
+//    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+//        let translation = recognizer.translation(in: self.view)
+//        if let view = recognizer.view {
+//            view.center = CGPoint(x:view.center.x + translation.x,
+//                                  y:view.center.y + translation.y)
+//        }
+//        recognizer.setTranslation(CGPoint.zero, in: self.view)
+//    }
+    
+    
+//    self.tableView.addGestureRecognizer(tap)
+    
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("??")
+    }
 }
 
