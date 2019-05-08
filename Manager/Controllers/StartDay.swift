@@ -54,6 +54,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         DayPicker.selectRow(day!, inComponent: 0, animated: true)
         
+        print(currentDate)
         // Table setup
         populateTable(date: currentDate)
         tableView.dataSource = self
@@ -79,10 +80,23 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     // Pull tasks from server onto interface
     func populateTable(date: Date) {
+        var calendar = NSCalendar.current
+        calendar.timeZone = NSTimeZone.local;
+        var startDay = calendar.startOfDay(for: Date());
+        startDay = Date.init(timeInterval: -86400, since: startDay);
+        if(date <= startDay){
+            AddNewTaskField.isHidden = true;
+            textSendBtn.isHidden = true;
+        }else{
+            AddNewTaskField.isHidden = false;
+            textSendBtn.isHidden = false;
+        }
         let times = utils.getDateStartEnd(date: date)
         
         let tasks = taskServices.LoadTasks(start: times[0], end: times[1])
-        
+        taskID = [];
+        taskTitles = [];
+        taskState = [];
         for t in tasks {
             taskID.append(t.id)
             taskTitles.append(t.title)
@@ -96,6 +110,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 taskState.append(2)
             }
         }
+        tableView.reloadData();
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -168,6 +183,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     @IBAction func sendTaskBtn(_ sender: Any) {
         AddNewTaskField.resignFirstResponder() // Dismiss keyboard
         
+        print(currentDate)
         let newTask = taskServices.UpdateTask(task: taskServices.NewTask(title: AddNewTaskField.text!, day: currentDate))
         
         // Dynamically add data to table

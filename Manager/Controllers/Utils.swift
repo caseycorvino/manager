@@ -19,7 +19,7 @@ class Utils: UIViewController {
     func getDateStartEnd(date: Date) -> Array<Date> {
         var calendar = Calendar.current
         
-        calendar.timeZone = TimeZone(abbreviation: "UTC")! //OR NSTimeZone.localTimeZone()
+        calendar.timeZone = NSTimeZone.local;
         let dateAtMidnight = calendar.startOfDay(for: date)
         
         //For End Date
