@@ -184,7 +184,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         AddNewTaskField.resignFirstResponder() // Dismiss keyboard
         
         print(currentDate)
-        let newTask = taskServices.UpdateTask(task: taskServices.NewTask(title: AddNewTaskField.text!, day: currentDate))
+        let newTask = taskServices.UpdateTask(task: taskServices.NewTask(title: AddNewTaskField.text!, day: Date(timeInterval: 10, since: currentDate)) );
         
         // Dynamically add data to table
         taskID.append(newTask.id)
