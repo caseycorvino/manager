@@ -12,6 +12,7 @@
 		55D295D7227E529800E1DCF4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D295D6227E529800E1DCF4 /* Utils.swift */; };
 		5A900776227E9B4E004593C8 /* StartDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A900775227E9B4E004593C8 /* StartDay.swift */; };
 		5A900778227E9B73004593C8 /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A900777227E9B73004593C8 /* NewTask.swift */; };
+		5A946561228224E200056626 /* DateModelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A94655D2282242200056626 /* DateModelPicker.swift */; };
 		C9093175227BA0EB00FD321C /* TaskServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A3B3422690CC300D5F368 /* TaskServices.swift */; };
 		C94A3B3722690CDE00D5F368 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94A3B3622690CDE00D5F368 /* Task.swift */; };
 		C964000E22800C31009F0492 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C964000D22800C31009F0492 /* NotificationCenter.framework */; };
@@ -75,6 +76,7 @@
 		55D295D6227E529800E1DCF4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5A900775227E9B4E004593C8 /* StartDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDay.swift; sourceTree = "<group>"; };
 		5A900777227E9B73004593C8 /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
+		5A94655D2282242200056626 /* DateModelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModelPicker.swift; sourceTree = "<group>"; };
 		C94A3B3422690CC300D5F368 /* TaskServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServices.swift; sourceTree = "<group>"; };
 		C94A3B3622690CDE00D5F368 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		C964000B22800C31009F0492 /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 				55D295D6227E529800E1DCF4 /* Utils.swift */,
 				5A900775227E9B4E004593C8 /* StartDay.swift */,
 				5A900777227E9B73004593C8 /* NewTask.swift */,
+				5A94655D2282242200056626 /* DateModelPicker.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				C94A3B3722690CDE00D5F368 /* Task.swift in Sources */,
 				C9D6DF7C226024BF00D92D1C /* ViewController.swift in Sources */,
 				C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */,
+				5A946561228224E200056626 /* DateModelPicker.swift in Sources */,
 				55D295D3227E311E00E1DCF4 /* WeeklyOverview.swift in Sources */,
 				C9093175227BA0EB00FD321C /* TaskServices.swift in Sources */,
 				5A900778227E9B73004593C8 /* NewTask.swift in Sources */,
