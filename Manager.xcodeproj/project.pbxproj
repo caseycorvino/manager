@@ -29,6 +29,7 @@
 		C9D6DF87226024BF00D92D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D6DF85226024BF00D92D1C /* LaunchScreen.storyboard */; };
 		C9D6DF92226024C000D92D1C /* ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6DF91226024C000D92D1C /* ManagerTests.swift */; };
 		C9D6DF9D226024C000D92D1C /* ManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D6DF9C226024C000D92D1C /* ManagerUITests.swift */; };
+		C9FA61A72282596C00D63609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D6DF83226024BF00D92D1C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +79,6 @@
 		5A94655D2282242200056626 /* DateModelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModelPicker.swift; sourceTree = "<group>"; };
 		C94A3B3422690CC300D5F368 /* TaskServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServices.swift; sourceTree = "<group>"; };
 		C94A3B3622690CDE00D5F368 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		C94A3B3822690D2800D5F368 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		C964000B22800C31009F0492 /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C964000D22800C31009F0492 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		C964001022800C31009F0492 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -185,7 +185,6 @@
 				C9D6DF7D226024BF00D92D1C /* Main.storyboard */,
 				C9D6DFAA226024CA00D92D1C /* Controllers */,
 				C9D6DFAB226024E800D92D1C /* Services */,
-				C9D6DFAC2260250C00D92D1C /* Resources */,
 				C9D6DFAD2260259900D92D1C /* Objects */,
 				C9D6DF83226024BF00D92D1C /* Assets.xcassets */,
 				C9D6DF85226024BF00D92D1C /* LaunchScreen.storyboard */,
@@ -233,14 +232,6 @@
 				C94A3B3422690CC300D5F368 /* TaskServices.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		C9D6DFAC2260250C00D92D1C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C94A3B3822690D2800D5F368 /* empty.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		C9D6DFAD2260259900D92D1C /* Objects */ = {
@@ -388,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9FA61A72282596C00D63609 /* Assets.xcassets in Resources */,
 				C964001422800C31009F0492 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
