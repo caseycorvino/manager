@@ -109,7 +109,11 @@ class WeeklyOverview: UIViewController {
         
         for i in (0...6) {
             var times = utils.getDateStartEnd(date: utils.getDateAgo(days: i))
-            tasksCount[i] = (taskServices.LoadTasks(start:times[0], end:times[1])).count
+            for task in taskServices.LoadTasks(start:times[0], end:times[1]) {
+                if (task.end != nil) {
+                    tasksCount[i] += 1
+                }
+            }
             
         }
         
