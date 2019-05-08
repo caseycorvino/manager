@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Manager/Controllers/WeeklyOverview.swift"
-            timestampString = "578982455.813498"
+            timestampString = "578986976.256793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "WeeklyOverview"
             landmarkType = "3">
          </BreakpointContent>
