@@ -54,6 +54,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         DayPicker.selectRow(day!, inComponent: 0, animated: true)
         
+        print(currentDate)
         // Table setup
         populateTable(date: currentDate)
         tableView.dataSource = self
@@ -93,7 +94,9 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         let times = utils.getDateStartEnd(date: date)
         
         let tasks = taskServices.LoadTasks(start: times[0], end: times[1])
-        
+        taskID = [];
+        taskTitles = [];
+        taskState = [];
         for t in tasks {
             taskID.append(t.id)
             taskTitles.append(t.title)
@@ -107,6 +110,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 taskState.append(2)
             }
         }
+        tableView.reloadData();
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
