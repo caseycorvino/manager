@@ -79,6 +79,15 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     // Pull tasks from server onto interface
     func populateTable(date: Date) {
+        var calendar = NSCalendar.current
+        calendar.timeZone = NSTimeZone.local;
+        var startDay = calendar.startOfDay(for: Date());
+        startDay = Date.init(timeInterval: -86400, since: startDay);
+        if(date <= startDay){
+            AddNewTaskField.isHidden = true;
+        }else{
+            AddNewTaskField.isHidden = false;
+        }
         let times = utils.getDateStartEnd(date: date)
         
         let tasks = taskServices.LoadTasks(start: times[0], end: times[1])
