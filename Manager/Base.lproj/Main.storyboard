@@ -563,16 +563,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ArrowBtn" width="120" height="120"/>
+        <image name="ArrowBtn" width="360" height="360"/>
         <image name="Background" width="414" height="736"/>
         <image name="ButtonNoBorder" width="90" height="39"/>
         <image name="ButtonWhiteBorder" width="90" height="39"/>
-        <image name="DayBtn" width="135" height="120"/>
-        <image name="WeekBtn" width="134" height="120"/>
+        <image name="DayBtn" width="540" height="480"/>
+        <image name="WeekBtn" width="536" height="480"/>
         <image name="WhiteLine" width="414" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bzy-mI-H0f"/>
+        <segue reference="v6E-Sb-FaI"/>
         <segue reference="wm7-IJ-A4s"/>
     </inferredMetricsTieBreakers>
 </document>
