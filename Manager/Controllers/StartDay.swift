@@ -85,8 +85,10 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         startDay = Date.init(timeInterval: -86400, since: startDay);
         if(date <= startDay){
             AddNewTaskField.isHidden = true;
+            textSendBtn.isHidden = true;
         }else{
             AddNewTaskField.isHidden = false;
+            textSendBtn.isHidden = false;
         }
         let times = utils.getDateStartEnd(date: date)
         
@@ -177,6 +179,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     @IBAction func sendTaskBtn(_ sender: Any) {
         AddNewTaskField.resignFirstResponder() // Dismiss keyboard
         
+        print(currentDate)
         let newTask = taskServices.UpdateTask(task: taskServices.NewTask(title: AddNewTaskField.text!, day: currentDate))
         
         // Dynamically add data to table
