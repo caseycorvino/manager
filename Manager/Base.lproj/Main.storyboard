@@ -443,7 +443,7 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qvr-4c-otb">
-                                <rect key="frame" x="0.0" y="814" width="414" height="48"/>
+                                <rect key="frame" x="185" y="629" width="48" height="414"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
@@ -453,6 +453,7 @@
                     </view>
                     <connections>
                         <outlet property="AddNewTaskField" destination="XjA-Yd-jc3" id="gwb-hB-ubW"/>
+                        <outlet property="DayLabel" destination="Brw-oy-GF8" id="gO2-ez-vjl"/>
                         <outlet property="DayPicker" destination="Qvr-4c-otb" id="GhV-ST-uFI"/>
                         <outlet property="MonthLabel" destination="KB5-P8-tRl" id="ltj-t6-kxy"/>
                         <outlet property="tableView" destination="uFm-cP-rwe" id="xX7-XM-Xws"/>
@@ -572,6 +573,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bzy-mI-H0f"/>
-        <segue reference="Oet-mm-Xp2"/>
+        <segue reference="wm7-IJ-A4s"/>
     </inferredMetricsTieBreakers>
 </document>

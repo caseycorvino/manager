@@ -8,11 +8,12 @@
 
 import UIKit
 
-class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate
+class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate
  {
     var dateModelPicker: DateModelPicker!
     @IBOutlet weak var DayPicker: UIPickerView!
     @IBOutlet weak var MonthLabel: UILabel!
+    @IBOutlet weak var DayLabel: UILabel!
     
     @IBOutlet weak var AddNewTaskField: UITextField!
     @IBOutlet weak var textSendBtn: UIButton!
@@ -22,7 +23,7 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
 
     let taskServices = TaskServices()
     let utils = Utils()
-    let currentDate = Date()
+    var currentDate = Date()
     
     let unstartedBtn = UIImage(named: "NotStartedBtn.png")
     let startedBtn = UIImage(named: "StartedBtn.png")
@@ -34,13 +35,24 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         dateModelPicker = DateModelPicker()
         
         // Set footer calendar
-        DayPicker.delegate = dateModelPicker
+       
+        DayPicker.transform = CGAffineTransform(rotationAngle: -.pi/2 as CGFloat)
+        DayPicker.frame = CGRect(x: -100, y: 812, width: view.frame.width + 200, height: 48)
+        DayPicker.delegate = self
         DayPicker.dataSource = dateModelPicker
         
+        let df = DateFormatter()
+        df.dateFormat = "dd"
+        let firstD = Date()
+        let cal = Calendar.current
+        let day = cal.ordinality(of: .day, in: .year, for: firstD)
+        
+        DayPicker.selectRow(day!, inComponent: 0, animated: true)
         
         // Table setup
         populateTable(date: currentDate)
@@ -50,11 +62,20 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         // Add new task field setup
         self.AddNewTaskField.delegate = self
         
+        //Month Label Setup
+        df.dateFormat = "MMMM"
+        MonthLabel.text = df.string(for: currentDate)
+        
+        //Day Label Setup
+        df.dateFormat = "MM/dd/YYYY"
+        DayLabel.text = df.string(for: currentDate)
+        
         // Testing
         print("printing initial tasks count")
         print(taskServices.LoadTasks().count)
         
     }
+    
     
     // Pull tasks from server onto interface
     func populateTable(date: Date) {
@@ -159,6 +180,41 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
    
         // Clear textfield
         AddNewTaskField.text = ""
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
+        view.transform = CGAffineTransform(rotationAngle: (90 * (.pi / 180)))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
+        let df = DateFormatter()
+        df.dateFormat = "dd"
+        let firstD = Date()
+        let cal = Calendar.current
+        let day = cal.ordinality(of: .day, in: .year, for: firstD)
+        label.text = df.string(for: Date()+TimeInterval(row * 86400)-TimeInterval(86400*day!))
+        label.textAlignment = .center
+        view.addSubview(label)
+        return view
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var dateComponents = DateComponents()
+        dateComponents.day = row
+        dateComponents.year = 2019
+        
+        let cal = NSCalendar.current
+        currentDate = cal.date(from: dateComponents)!
+        
+        populateTable(date: currentDate)
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.0)
+        
+        let df = DateFormatter()
+        df.dateFormat = "MMMM"
+        MonthLabel.text = df.string(for: currentDate)
+        
+        df.dateFormat = "MM/dd/YYYY"
+        DayLabel.text = df.string(for: currentDate)
     }
     
 }
