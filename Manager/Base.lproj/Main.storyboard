@@ -177,6 +177,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="omY-fJ-ELQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Month" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFN-6V-q3W">
                                 <rect key="frame" x="159" y="72" width="97" height="29.999999999999943"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -305,10 +309,6 @@
                                     <segue destination="FwG-gK-fiu" kind="show" id="wVE-jB-asD"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="omY-fJ-ELQ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="c9y-Rj-UiH"/>
@@ -861,8 +861,8 @@
         <image name="WhiteLine" width="414" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v6E-Sb-FaI"/>
-        <segue reference="Owk-lh-Nnj"/>
+        <segue reference="Bzy-mI-H0f"/>
+        <segue reference="wVE-jB-asD"/>
         <segue reference="ZVs-tf-dsy"/>
         <segue reference="g7Q-1H-8OV"/>
     </inferredMetricsTieBreakers>
