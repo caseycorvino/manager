@@ -55,10 +55,10 @@ class TodayViewController2: UIViewController, NCWidgetProviding {
                     let dayFrame = daysText[i]?.frame
                     let newCircle = utils.createImage(Name: "TaskCirclex4.png")
                     newCircle.frame = CGRect(
-                        x: dayFrame!.origin.x + CGFloat(48),
-                        y: dayFrame!.origin.y + CGFloat(j*40) + 20,
-                        width: 20,
-                        height: 20)
+                        x: dayFrame!.origin.x + CGFloat(30),
+                        y: dayFrame!.origin.y + CGFloat(j*40) + 12,
+                        width: 16,
+                        height: 16)
                     view.addSubview(newCircle)
                 }
             }

@@ -44,13 +44,13 @@ class HoursWeeklyOverview: UIViewController {
                 let hoursLabel = UILabel()
 
                 newBar.frame = CGRect(
-                    x: CGFloat(dayFrame!.origin.x + 12),
+                    x: CGFloat(dayFrame!.origin.x - 6),
                     y: CGFloat(dayFrame!.origin.y + 50),
                     width: CGFloat(16),
                     height: CGFloat(Float(hours[i]) / 12.0 * 16)
                 )
                 hoursLabel.frame = CGRect(
-                    x: dayFrame!.origin.x + 8,
+                    x: dayFrame!.origin.x - 12,
                     y: dayFrame!.origin.y + 48 + CGFloat(Float(hours[i]) / 12.0 * 16),
                     width: 40,
                     height: 40)

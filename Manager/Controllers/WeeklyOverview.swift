@@ -46,10 +46,10 @@ class WeeklyOverview: UIViewController {
                     let dayFrame = daysText[i]?.frame
                     let newCircle = utils.createImage(Name: "TaskCirclex4.png")
                     newCircle.frame = CGRect(
-                        x: dayFrame!.origin.x + CGFloat(10),
+                        x: dayFrame!.origin.x - CGFloat(8),
                         y: dayFrame!.origin.y + CGFloat(j*40) + 20,
-                        width: 20,
-                        height: 20)
+                        width: 15,
+                        height: 15)
                     view.addSubview(newCircle)
                 }
             }
