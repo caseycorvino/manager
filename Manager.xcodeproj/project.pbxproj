@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554F0A2A2282961900A3701F /* StatsOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F0A292282961900A3701F /* StatsOverviewViewController.swift */; };
 		55D295D3227E311E00E1DCF4 /* WeeklyOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D295D2227E311E00E1DCF4 /* WeeklyOverview.swift */; };
 		55D295D5227E4DC100E1DCF4 /* HoursWeeklyOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D295D4227E4DC100E1DCF4 /* HoursWeeklyOverview.swift */; };
 		55D295D7227E529800E1DCF4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D295D6227E529800E1DCF4 /* Utils.swift */; };
@@ -87,6 +88,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		554F0A292282961900A3701F /* StatsOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsOverviewViewController.swift; sourceTree = "<group>"; };
 		55D295D2227E311E00E1DCF4 /* WeeklyOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyOverview.swift; sourceTree = "<group>"; };
 		55D295D4227E4DC100E1DCF4 /* HoursWeeklyOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoursWeeklyOverview.swift; sourceTree = "<group>"; };
 		55D295D6227E529800E1DCF4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				5A900775227E9B4E004593C8 /* StartDay.swift */,
 				5A900777227E9B73004593C8 /* NewTask.swift */,
 				5A94655D2282242200056626 /* DateModelPicker.swift */,
+				554F0A292282961900A3701F /* StatsOverviewViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				5A900776227E9B4E004593C8 /* StartDay.swift in Sources */,
 				55D295D5227E4DC100E1DCF4 /* HoursWeeklyOverview.swift in Sources */,
 				C94A3B3722690CDE00D5F368 /* Task.swift in Sources */,
+				554F0A2A2282961900A3701F /* StatsOverviewViewController.swift in Sources */,
 				C9D6DF7C226024BF00D92D1C /* ViewController.swift in Sources */,
 				C9D6DF7A226024BF00D92D1C /* AppDelegate.swift in Sources */,
 				5A946561228224E200056626 /* DateModelPicker.swift in Sources */,
