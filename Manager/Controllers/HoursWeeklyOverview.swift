@@ -28,7 +28,7 @@ class HoursWeeklyOverview: UIViewController {
         utils.setDates(today: 6, month: MonthLabel, days: daysArray as! Array<UILabel>)
         
 //        let testHours = [4, 0, 8, 6, 0, 5, 2]
-        setBars(hours: getHours())
+        setBars(hours: getHoursPerDay())
         // Do any additional setup after loading the view.
     }
     
@@ -41,15 +41,24 @@ class HoursWeeklyOverview: UIViewController {
 
                 let dayFrame = daysText[i]?.frame
                 let newBar = utils.createImage(Name: "HoursBar.png")
+                let hoursLabel = UILabel()
 
                 newBar.frame = CGRect(
                     x: CGFloat(dayFrame!.origin.x + 12),
                     y: CGFloat(dayFrame!.origin.y + 50),
                     width: CGFloat(16),
-                    height: CGFloat(Float(hours[i]) / 12.0 * 700)
+                    height: CGFloat(Float(hours[i]) / 12.0 * 16)
                 )
+                hoursLabel.frame = CGRect(
+                    x: dayFrame!.origin.x + 8,
+                    y: dayFrame!.origin.y + 48 + CGFloat(Float(hours[i]) / 12.0 * 16),
+                    width: 40,
+                    height: 40)
+                hoursLabel.text = String(Float(hours[i])/60.0)
+                hoursLabel.textColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
                 
                 view.addSubview(newBar)
+                view.addSubview(hoursLabel)
                 
                 print(Float(hours[i] / 12))
                 print(newBar.frame)
@@ -58,15 +67,14 @@ class HoursWeeklyOverview: UIViewController {
         }
     }
     
-    func getHours() -> Array<Int> {
+    func getHoursPerDay() -> Array<Int> {
         var hours = [0,0,0,0,0,0,0]
         
         for i in 0...6 {
-            var times = utils.getDateStartEnd(date: utils.getDateAgo(days: i))
-            let tasks = taskServices.LoadTasks(start: times[0], end: times[1])
-            if (tasks.count > 0) {
-                hours[i] = taskServices.LoadTasks(start: times[0], end: times[1])[0].timeWorkedInMinutes()
-            }
+            var date = utils.getDateStartEnd(date: utils.getDateAgo(days: i))
+            let workTime = taskServices.timeWorkedInMinutes(start: date[0], end: date[1])
+            
+            hours[i] += workTime
         }
         
         return hours.reversed()
