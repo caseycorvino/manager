@@ -162,18 +162,21 @@ class StartDay: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         if let tapIndexPath = self.tableView.indexPathForRow(at: tapLocation) {
             
             var activeTask = taskServices.GetTask(id: Int(truncating: taskID[tapIndexPath.row]))
-            // Update state of task
-            if (taskState[tapIndexPath.row] == 0) { // Start a task
-                activeCell?.imageView!.image = startedBtn
-                activeTask?.start = Date()
+            let times = utils.getDateStartEnd(date: Date());
+            if((times[0] ... times[1]).contains(activeTask?.day ?? Date())){
+                // Update state of task
+                if (taskState[tapIndexPath.row] == 0) { // Start a task
+                    activeCell?.imageView!.image = startedBtn
+                    activeTask?.start = Date()
+                }
+                else if (taskState[tapIndexPath.row] == 1) { // Finish a task
+                    activeCell?.imageView!.image = finishedBtn
+                    activeTask?.end = Date()
+                }
+                
+                taskServices.UpdateTask(task: activeTask!)
+                taskState[tapIndexPath.row] += 1
             }
-            else if (taskState[tapIndexPath.row] == 1) { // Finish a task
-                activeCell?.imageView!.image = finishedBtn
-                activeTask?.end = Date()
-            }
-            
-            taskServices.UpdateTask(task: activeTask!)
-            taskState[tapIndexPath.row] += 1
         }
 //        activeCell?.imageView!.image = UIImage(named: "StartedBtn.png")
     }
