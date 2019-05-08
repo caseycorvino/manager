@@ -76,7 +76,6 @@
 		5A900777227E9B73004593C8 /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
 		C94A3B3422690CC300D5F368 /* TaskServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServices.swift; sourceTree = "<group>"; };
 		C94A3B3622690CDE00D5F368 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		C94A3B3822690D2800D5F368 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		C964000B22800C31009F0492 /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C964000D22800C31009F0492 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		C964001022800C31009F0492 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -183,7 +182,6 @@
 				C9D6DF7D226024BF00D92D1C /* Main.storyboard */,
 				C9D6DFAA226024CA00D92D1C /* Controllers */,
 				C9D6DFAB226024E800D92D1C /* Services */,
-				C9D6DFAC2260250C00D92D1C /* Resources */,
 				C9D6DFAD2260259900D92D1C /* Objects */,
 				C9D6DF83226024BF00D92D1C /* Assets.xcassets */,
 				C9D6DF85226024BF00D92D1C /* LaunchScreen.storyboard */,
@@ -230,14 +228,6 @@
 				C94A3B3422690CC300D5F368 /* TaskServices.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		C9D6DFAC2260250C00D92D1C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C94A3B3822690D2800D5F368 /* empty.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		C9D6DFAD2260259900D92D1C /* Objects */ = {
