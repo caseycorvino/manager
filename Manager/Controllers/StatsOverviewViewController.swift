@@ -56,6 +56,17 @@ class StatsOverviewViewController: UIViewController {
     
 //    myLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
 
+    @IBAction func save(_ sender: Any) {
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        // Creates UIImage of same size as view
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        // THIS IS TO SAVE SCREENSHOT TO PHOTOS
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+    }
     func getCompletedTasks() -> Int {
         var total = 0
         for task in tasksArr {

@@ -32,6 +32,17 @@ class HoursWeeklyOverview: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func save(_ sender: Any) {
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        // Creates UIImage of same size as view
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        // THIS IS TO SAVE SCREENSHOT TO PHOTOS
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+    }
     func setBars(hours: Array<Int>) {
         let daysText = [Day1, Day2, Day3, Day4, Day5, Day6, Day7]
         

@@ -201,6 +201,14 @@
                                     <segue destination="FwG-gK-fiu" kind="show" animates="NO" id="Owk-lh-Nnj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRy-OC-iVW">
+                                <rect key="frame" x="189" y="770" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SAVE"/>
+                                <connections>
+                                    <action selector="save:" destination="xlj-1g-BDk" eventType="touchUpInside" id="Ql1-lu-Fgx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -453,6 +461,14 @@
                                 </variation>
                                 <connections>
                                     <segue destination="FwG-gK-fiu" kind="show" animates="NO" id="wVE-jB-asD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXl-UW-pkH">
+                                <rect key="frame" x="189" y="762" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SAVE"/>
+                                <connections>
+                                    <action selector="save:" destination="9av-p6-tDq" eventType="touchUpInside" id="F8X-M6-BCM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -850,6 +866,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9q-7a-VgQ">
+                                <rect key="frame" x="189" y="762" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SAVE"/>
+                                <connections>
+                                    <action selector="save:" destination="FwG-gK-fiu" eventType="touchUpInside" id="OgB-KQ-j88"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1262,12 +1286,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ArrowBtn" width="360" height="360"/>
+        <image name="ArrowBtn" width="120" height="120"/>
         <image name="Background" width="414" height="736"/>
         <image name="ButtonNoBorder" width="90" height="39"/>
         <image name="ButtonWhiteBorder" width="90" height="39"/>
-        <image name="DayBtn" width="540" height="480"/>
-        <image name="WeekBtn" width="536" height="480"/>
+        <image name="DayBtn" width="135" height="120"/>
+        <image name="WeekBtn" width="134" height="120"/>
         <image name="WhiteLine" width="414" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
