@@ -36,6 +36,20 @@ class TaskServices {
     }
     
     /*
+     delete task
+     */
+    func DeleteTask(id: Int){
+        var tasks = LoadTasks();
+        for (index, task) in tasks.enumerated() {
+            if Int(truncating: task.id) == id {
+                tasks.remove(at: index);
+                break;
+            }
+        }
+        SaveTasks(arrayToSave: tasks);
+    }
+    
+    /*
      Create and save a new task. Don't use task = Task(...) to make tasks. Use this:
      */
     func GetTask(id: Int) -> Task? {
